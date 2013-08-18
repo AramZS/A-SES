@@ -3,39 +3,39 @@
 
 @font-face {
     font-family: 'SESAllumiBold';
-    src: url('/font/sesallumi-bold-webfont.eot');
-    src: url('/font/sesallumi-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/font/sesallumi-bold-webfont.woff') format('woff'),
-         url('/font/sesallumi-bold-webfont.ttf') format('truetype'),
-         url('/font/sesallumi-bold-webfont.svg#SESAllumiBold') format('svg');
+    src: url('font/sesallumi-bold-webfont.eot');
+    src: url('font/sesallumi-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/sesallumi-bold-webfont.woff') format('woff'),
+         url('font/sesallumi-bold-webfont.ttf') format('truetype'),
+         url('font/sesallumi-bold-webfont.svg#SESAllumiBold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SESAllumiRegular';
-    src: url('/font/sesallumi-regular-webfont.eot');
-    src: url('/font/sesallumi-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/font/sesallumi-regular-webfont.woff') format('woff'),
-         url('/font/sesallumi-regular-webfont.ttf') format('truetype'),
-         url('/font/sesallumi-regular-webfont.svg#SESAllumiRegular') format('svg');
+    src: url('font/sesallumi-regular-webfont.eot');
+    src: url('font/sesallumi-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/sesallumi-regular-webfont.woff') format('woff'),
+         url('font/sesallumi-regular-webfont.ttf') format('truetype'),
+         url('font/sesallumi-regular-webfont.svg#SESAllumiRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SESAllumiLight';
-    src: url('/font/sesallumi-light-webfont.eot');
-    src: url('/font/sesallumi-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/font/sesallumi-light-webfont.woff') format('woff'),
-         url('/font/sesallumi-light-webfont.ttf') format('truetype'),
-         url('/font/sesallumi-light-webfont.svg#SESAllumiLight') format('svg');
+    src: url('font/sesallumi-light-webfont.eot');
+    src: url('font/sesallumi-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/sesallumi-light-webfont.woff') format('woff'),
+         url('font/sesallumi-light-webfont.ttf') format('truetype'),
+         url('font/sesallumi-light-webfont.svg#SESAllumiLight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-	background:#fff url(/i/bg-body2.png) no-repeat top left;
+	background:#fff url(i/bg-body2.png) no-repeat top left;
 	margin:0;
 	height:100%;
 	font-family:Arial, Helvetica, sans-serif;
@@ -74,7 +74,7 @@ ul.plain li {
 .arrow {
 	clear:both;
 	padding-left:12px;
-	background:url(/i/arrow.gif) no-repeat left top;
+	background:url(i/arrow.gif) no-repeat left top;
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size:12px;
 	line-height:15px;
@@ -91,13 +91,13 @@ ul.plain li {
 }
 
 #home #shell {
-	background:url(/i/bg-home-shell.jpg) no-repeat left top;
+	background:url(i/bg-home-shell.jpg) no-repeat left top;
 	position:absolute;
 	top:104px;
 }
 
 #inner #shell {
-	background:url(/i/bg-inner-shell.jpg) no-repeat left bottom;
+	background:url(i/bg-inner-shell.jpg) no-repeat left bottom;
 	position:absolute;
 	top:105px;
 }
@@ -122,7 +122,7 @@ ul.plain li {
 }
 
 #inner #content {
-	background:#fff url(/i/bg-inner-content.jpg) no-repeat top right;
+	background:#fff url(i/bg-inner-content.jpg) no-repeat top right;
 }
 
 #nav {
@@ -143,7 +143,7 @@ ul.plain li {
 }
 
 #home #content {
-	background:#fff url(/i/bg-home-content.jpg) no-repeat top;
+	background:#fff url(i/bg-home-content.jpg) no-repeat top;
 	top:-55px;
 }
 
@@ -162,7 +162,7 @@ ul.plain li {
 	float:left;
 	padding-right:10px;
 	margin-right:10px;
-	background:url(/i/nav-divider.gif) no-repeat right top;
+	background:url(i/nav-divider.gif) no-repeat right top;
 }
 
 #footer ul li {
@@ -199,7 +199,7 @@ ul.plain li {
 }
 
 #feature-wrapper {
-	background: url(/i/home-feature-rays.png) no-repeat top left;
+	background: url(i/home-feature-rays.png) no-repeat top left;
 	width: 1024px;
 	height: 300px;
 	z-index: 900;
@@ -215,7 +215,7 @@ ul.plain li {
 
 
 #text {
-	background:#fff url(/i/bg-text.png) no-repeat top left;
+	background:#fff url(i/bg-text.png) no-repeat top left;
 	width:520px;
 	padding:8px 10px 10px 10px;
 	float:left;
@@ -239,14 +239,14 @@ ul.plain li {
 }
 
 .sidebar-box {
-	background:url(/i/bg-opaque-sidebar.png) repeat-y;
+	background:url(i/bg-opaque-sidebar.png) repeat-y;
 	/* padding:0px 10px 5px 10px; */
 	width:190px;
 	margin-bottom:15px;
 }
 
 .sidebar-shadow {
-	background:url(/i/bg-sidebar-top.png) no-repeat top;
+	background:url(i/bg-sidebar-top.png) no-repeat top;
 	height:3px;
 	width:190px;
 }
@@ -304,7 +304,7 @@ ul.plain li {
 #side-nav li a {
 	text-decoration:none;
 	padding-left:30px;
-	background:url(/i/arrow-nav.gif) no-repeat left;
+	background:url(i/arrow-nav.gif) no-repeat left;
 	display:block;
 	height:23px;
 	line-height:14px;
@@ -312,7 +312,7 @@ ul.plain li {
 }
 
 #side-nav li a:hover {
-	background:url(/i/arrow-nav-hover.gif) no-repeat left;
+	background:url(i/arrow-nav-hover.gif) no-repeat left;
 	display:block;
 	height:23px;
 	color:#017db0;
@@ -356,7 +356,7 @@ ul.plain li {
 }
 
 #footer {
-	background:url(/i/bg-footer.png) repeat-x;
+	background:url(i/bg-footer.png) repeat-x;
 	width:740px;
 	height:36px;
 	line-height:36px;
@@ -402,7 +402,7 @@ ul.plain li {
 	margin-top:360px;
 	margin-bottom:20px;
 	padding-top:6px;
-	background:#fff url(/i/tabs-top.png) no-repeat top left;
+	background:#fff url(i/tabs-top.png) no-repeat top left;
 }
 
 /*--------------------------------------------------
