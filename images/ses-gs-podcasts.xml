@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+
+
+
+<channel>
+
+
+<title>The GovSat Report</title>
+
+
+
+<link>http://www.ses-gs.com/</link>
+
+
+
+<language>en-us</language>
+
+<itunes:explicit>no</itunes:explicit>
+
+
+
+<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+
+</copyright>
+
+
+
+<itunes:subtitle>The GovSat Report</itunes:subtitle>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:summary>Brought to you by SES Government Solutins</itunes:summary>
+
+
+
+<description>Listen to the GovSat Report for the latest military SATCOM updates.</description>
+
+
+
+<itunes:owner>
+
+
+
+<itunes:name>SES-GS</itunes:name>
+
+
+
+<itunes:email>info@ses-gs.com</itunes:email>
+
+
+
+</itunes:owner>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png"/>
+
+
+
+<itunes:category text="Government &amp; Organizations">
+
+
+
+<itunes:category text="Technology"/>
+
+
+
+</itunes:category>
+
+
+
+<itunes:category text="Business"/>
+
+
+
+
+
+<item>
+
+
+
+<title>Responding to the Growing Needs of the U.S. Government</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/022712-SES-GS-GOVSAT-report.mp3" length="30" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/022712-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 27 Feb 2012 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>30:00</itunes:duration>
+
+
+
+<itunes:keywords>>ses government solutions, satcom, satellite, milsatcom, wtop, government, growing needs, usg</itunes:keywords>
+
+
+
+</item>
+
+
+
+
+
+
+
+<item>
+
+
+
+<title>SES-3 Satellite Relocated to Satisfy Growing Government Demand</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/020612-SES-GS-GOVSAT-report.mp3" length="30" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/020612-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 06 Feb 2012 05:00:00 EST </pubDate>
+
+
+
+<itunes:duration>30:00</itunes:duration>
+
+
+
+<itunes:keywords>SES-GS, SES Government Solutions, GovSat Report, SATCOM, Satellite, MilSATCOM, WTOP, U.S. Government, SES-3</itunes:keywords>
+
+
+
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+<item>
+
+
+
+<title>Introducing SES Government Solutions</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/011712-SES-GS-GOVSAT-report.mp3" length="30" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/011712-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Tue, 17 Jan 2012 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>30:00</itunes:duration>
+
+
+
+<itunes:keywords>SES-GS, SES Government Solutions, GovSat Report, SATCOM, Satellite, MilSATCOM, WTOP, U.S. Government</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>Commitment to Creating a Competitive Marketplace for the U.S. Government</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/121911-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/121911-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 19 Dec 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>SES-GS, SES Government Solutions, GovSat Report, SATCOM, Satellite, MilSATCOM, WTOP, U.S. Government</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>Ensuring the USG Has Better Access to Communications in a Tight Budget Environment</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/120511-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/120511-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 05 Dec 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>SES-GS, SES Government Solutions, GovSat Report, SATCOM, Satellite, MilSATCOM, WTOP, U.S. Government</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>Providing Essential Satellite Communications to meet the Growing Demand</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/110711-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/110711-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 07 Nov 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>ses government solutions, satcom, satellite, milsatcom, wtop, government</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>Unamnned Aerial and Remotely Piloted Demand for SATCOM</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/102411-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/102411-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 24 Oct 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>ses government solutions, satcom, satellite, milsatcom, wtop, government, chirp, commercially hosted infrared payload, uav, unmanned aerial vehicle, unmanned aircraft system, remotely piloted aircraft, troop withdrawl</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>SES' Single Largest Customer: U.S. Government</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/101011-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/101011-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 10 Oct 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>ses government solutions, satcom, satellite, milsatcom, wtop, government, chirp, commercially hosted infrared payload, ses-2</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>What Will CHIRP Hold for the Future?</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/092611-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/092611-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 26 Sep 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>ses government solutions, satcom, satellite, milsatcom, wtop, government, chirp, commercially hosted infrared payload, ses-2</itunes:keywords>
+
+
+
+</item>
+
+
+
+<item>
+
+
+
+<title>Successful Launch of SES-2 Satellite and CHIRP</title>
+
+
+
+<itunes:author>SES-GS</itunes:author>
+
+
+
+<itunes:subtitle></itunes:subtitle>
+
+
+
+<itunes:summary></itunes:summary>
+
+
+
+<itunes:image href="http://www.ses-gs.com/SES-GS-Black-500r.png" />
+
+
+
+<enclosure url="http://www.ses-gs.com/091211-SES-GS-GOVSAT-report.mp3" length="60" type="audio/mpeg" />
+
+
+
+<guid>http://www.ses-gs.com/091211-SES-GS-GOVSAT-report.mp3</guid>
+
+
+
+<pubDate>Mon, 12 Sep 2011 05:00:00 EST</pubDate>
+
+
+
+<itunes:duration>60:00</itunes:duration>
+
+
+
+<itunes:keywords>ses government solutions, satcom, satellite, milsatcom, wtop, government, chirp, commercially hosted infrared payload, ses-2</itunes:keywords>
+
+
+
+</item>
+
+</channel>
+
+
+</rss>
