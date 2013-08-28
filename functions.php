@@ -161,7 +161,7 @@ function is_tree($pid)
 function add_stylesheets_ses(){
     wp_enqueue_style( 'ses-style-primary', get_bloginfo('template_directory').'/style.css');
 }
-add_action('init', 'add_stylesheets_ses');
+add_action('wp_head', 'add_stylesheets_ses');
 
 function add_scripts_ses(){
     wp_enqueue_script( 'jquery');
