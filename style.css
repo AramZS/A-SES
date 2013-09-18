@@ -668,3 +668,5 @@ table td {padding: 2px;}
 table th {padding: 3px 6px; background: #036; color: #fff; line-height: 16px; border-right: 1px solid;text-align:left;}
 table th a {color: #fff!important;}
 table tr.even {background: #efefef}
+
+img#wpstats{display:none}
