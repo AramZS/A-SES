@@ -61,6 +61,6 @@ fb_param.currency = 'USD';
 <div id="shell">
 	<?php if (is_tree('14')) { wp_nav_menu(  array( 'theme_location' => 'about-nav', 'container_class' => '', 'container_id' => '', 'before' => '', 'after' => '', 'menu_class' =>'', 'menu_id' => 'side-nav' )); } else if (is_tree('3')) { wp_nav_menu(  array( 'theme_location' => 'bandwidth-nav', 'container_class' => '', 'container_id' => '', 'before' => '', 'after' => '', 'menu_class' =>'', 'menu_id' => 'side-nav' )); } else if (is_tree('6') || is_tree('1962')) { wp_nav_menu(  array( 'theme_location' => 'press-nav', 'container_class' => '', 'container_id' => '', 'before' => '', 'after' => '', 'menu_class' =>'', 'menu_id' => 'side-nav' )); } else if (is_tree('1395')) { wp_nav_menu(  array( 'theme_location' => 'fcsa-nav', 'container_class' => '', 'container_id' => '', 'before' => '', 'after' => '', 'menu_class' =>'', 'menu_id' => 'side-nav' )); }?>
     <div id="wrapper">
-	<?php if (is_front_page()) echo "<div id='header-tagline'>Americom Government Services (AGS) doing business as SES Government Solutions</div>"; ?>
+	<?php if (is_front_page()) echo "<div id='header-tagline'>SES Government Solutions formerly known as Americom Government Services (AGS)</div>"; ?>
         <div id="content">
             <?php wp_nav_menu(  array( 'theme_location' => 'main-nav', 'container_class' => '', 'container_id' => 'nav', 'before' => '', 'after' => '', 'menu_class' =>'', 'menu_id' => '' ));  ?>
