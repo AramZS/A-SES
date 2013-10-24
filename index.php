@@ -69,6 +69,8 @@
 					elseif (is_page('6') || in_category('4')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
                     elseif (is_page('2155')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
+					
+					elseif (is_page('2910')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
                     elseif (is_page('1962')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
