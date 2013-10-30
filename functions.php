@@ -146,9 +146,7 @@ function is_tree($pid)
 
 	$ancestors = get_post_ancestors($post->$pid);
 	$root = count($ancestors) - 1;
-	if($root < 0) {
-		return false;
-	}
+
 	$parent = $ancestors[$root];
 
 	if(is_page() && (is_page($pid) || $post->post_parent == $pid || in_array($pid, $ancestors)))
