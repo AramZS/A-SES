@@ -54,7 +54,9 @@
 
             <div id="sidebar">
 
-            	<?php if (is_tree('14')) { if ( ! dynamic_sidebar( 'about-sidebar' ) ) :  endif; }
+            	<?php 
+				if (is_page('2910')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
+				elseif (is_tree('14')) { if ( ! dynamic_sidebar( 'about-sidebar' ) ) :  endif; }
 
 					elseif (is_page('3') || is_page(91)) { if ( ! dynamic_sidebar( 'bandwidth-sidebar' ) ) :  endif; }
 
@@ -69,8 +71,6 @@
 					elseif (is_page('6') || in_category('4')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
                     elseif (is_page('2155')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
-					
-					elseif (is_page('2910')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
                     elseif (is_page('1962')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 
