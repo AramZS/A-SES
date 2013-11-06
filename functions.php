@@ -121,6 +121,24 @@ register_sidebar(array(
 	'after_widget'  => '</div>',
 	'before_title'  => '<h3>',
 	'after_title'   => '</h3>'));
+
+register_sidebar(array(
+	'name'		=> 'Occasional Use Sidebar',
+	'id'            => 'ou-sidebar',
+	'description'   => 'Sidebar area for the Occasional Use page',
+	'before_widget' => '<div class="sidebar-shadow"></div><div class="sidebar-box">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>'));
+	
+register_sidebar(array(
+	'name'		=> 'Inclined Capacity Sidebar',
+	'id'            => 'ic-sidebar',
+	'description'   => 'Sidebar area for Inclined Area page',
+	'before_widget' => '<div class="sidebar-shadow"></div><div class="sidebar-box">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>'));
 	
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 120, 120, true ); //generic thumbnail image size
