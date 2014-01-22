@@ -1,0 +1,75 @@
+/*
+Bootstrap tames
+---------------------------------------------------------------------------------------------------- */
+.row {
+
+}
+.wrap.main-section .content .bg {
+    /*padding-top: 0;*/
+}
+
+.container {
+/*    max-width: 1020px;
+    padding: 0;
+    width: 100%;*/
+}
+
+/*.main-section.container{
+    border: 1px solid #EEEEEE;
+    padding: 0!important;
+}
+.main-section{
+    border: 1px solid #EEEEEE;
+    padding: 0!important;
+}*/
+.wrap.main-section .content {
+/*    float: right;
+    margin-right: 5%;
+    width: 75%;*/
+}
+
+
+
+.page-wrap{}
+.subnav{
+/*    float: left;
+    width: 20%;*/
+}
+.page-body{
+   background-color: #fafafa;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
+
+}
+.page-body > .container{ width:100%;}
+
+
+
+
+/*
+header
+---------------------------------------------------------------------------------------------------- */
+/*
+logo
+-------------------------------------------*/
+.navbar a.navbar-brand.logo {
+    height: auto;
+    padding: 11px;
+}
+
+/*
+nav
+-------------------------------------------*/
+nav.nav-main.navbar-collapse.collapse{
+    background:#428BCA;
+    float: right;
+    margin: 4em 6em 0 0;
+    width: 666px;
+}
+.menu-main{
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff!important;
+    padding: 0.75em;
+}
