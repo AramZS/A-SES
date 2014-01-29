@@ -35,20 +35,27 @@ Bootstrap tames
 /*    float: left;
     width: 20%;*/
 }
-.page-body{
-   background-color: #fafafa;
-    border: 1px solid #E5E5E5;
-    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
-
+.page-body{}
+.page-body > .container{ 
+ padding: 0;
+	width:100%;
 }
-.page-body > .container{ width:100%;}
 
 
+.page-body > .main-section{ 
+	background-color: #fafafa;
+	border: 1px solid #E5E5E5;
+	box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
+}
 
 
 /*
 header
 ---------------------------------------------------------------------------------------------------- */
+.navbar-header {float: none;}
+.logo-offset{}
+.nav-offset{margin: 3em 0 0;}
+
 /*
 logo
 -------------------------------------------*/
@@ -56,15 +63,24 @@ logo
     height: auto;
     padding: 11px;
 }
+/*
+tagline
+-------------------------------------------*/
+.tagline{ 
+    color: #999999;
+    font-size: 11px;
+    position: relative;
+    text-align: right;
+}
 
 /*
 nav
 -------------------------------------------*/
 nav.nav-main.navbar-collapse.collapse{
     background:#428BCA;
-    float: right;
+/*    float: right;
     margin: 4em 6em 0 0;
-    width: 666px;
+    width: 666px;*/
 }
 .menu-main{
     box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);}
@@ -72,4 +88,97 @@ nav.nav-main.navbar-collapse.collapse{
 .navbar-default .navbar-nav > li > a {
     color: #fff!important;
     padding: 0.75em;
+}
+
+
+
+
+
+/*
+footer
+---------------------------------------------------------------------------------------------------- */
+footer.content-info {
+    background: none;
+    margin: 2em 0;
+	padding: 0;
+}
+
+
+/*
+footer-menu
+-------------------------------------------*/
+.footer-menu-container {
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    float: left;
+    margin: 2em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.footer-menu-container ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+.footer-menu-container ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+.footer-menu-container ul li a {
+   display:block;
+   margin:0 0 0 1px;
+   padding:3px 10px;
+   color:#000;
+   text-decoration:none;
+   line-height:1.3em;
+}
+.footer-menu-container ul li a:hover {
+   text-decoration: underline;
+}
+.footer-menu-container ul li a.active,
+.footer-menu-container ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
+}
+
+/*
+desktop credits
+-------------------------------------------*/
+/*
+credits-menu
+-------------------------------------------*/
+.credits-menu{
+    list-style: none outside none;
+    padding: 0;
+}
+.credits-menu li{
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+}
+.credits-menu li a{
+    color: #000000;
+    display: block;
+    line-height: 1.3em;
+    margin: 0 0 0 1px;
+    padding: 3px 10px;
+   text-decoration: underline;
+}
+.credits-menul li a:hover {
+    color: #017DB0;
 }

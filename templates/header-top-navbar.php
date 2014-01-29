@@ -5,28 +5,30 @@
 ?>
 <header class="banner navbar navbar-default topnavbar <?php echo shoestrap_navbar_class(); ?>" role="banner">
   <div class="<?php echo shoestrap_container_class(); ?>">
-    <div class="navbar-header">
+    <div class="navbar-header clearfix">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-main, .nav-extras">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <div class="row">
+      
       <?php
       if ( shoestrap_getVariable( 'navbar_brand' ) != 0 ) :
-        echo '<a class="navbar-brand ' . shoestrap_branding_class( false ) . '" href="' . home_url() . '/">';
+        echo '<div class="logo-offset col-md-2"><a class="navbar-brand ' . shoestrap_branding_class( false ) . '" href="' . home_url() . '/">';
 
         if ( shoestrap_getVariable( 'navbar_logo' ) == 1 )
           shoestrap_logo();
         else
           bloginfo( 'name' );
-        echo '</a>';
+        echo '</a></div>';
       endif;
       ?>
-    </div>
-    <div class="nav-extras">
+<?php /*?>    <div class="nav-extras col-md-8">
       <?php do_action( 'shoestrap_pre_main_nav' ); ?>
-    </div>
+    </div><?php */?>
+    <div class="nav-offset col-md-9">
     <?php if (is_front_page()) echo "<div class='tagline'>SES Government Solutions, formerly known as Americom Government Services (AGS)</div>"; ?>
     <nav class="nav-main navbar-collapse collapse" role="navigation">
       <?php
@@ -48,6 +50,8 @@
         do_action( 'shoestrap_inside_nav_end' );
       ?>
     </nav>
+    </div><!-- end of nav offset -->
+    </div><!-- end of added row-->
     <?php do_action( 'shoestrap_post_main_nav' ); ?>
   </div>
 </header>
