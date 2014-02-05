@@ -139,6 +139,24 @@ register_sidebar(array(
 	'after_widget'  => '</div>',
 	'before_title'  => '<h3>',
 	'after_title'   => '</h3>'));
+
+register_sidebar(array(
+	'name'			=> 'Air Force',
+	'id'            => 'af-sidebar',
+	'description'   => 'Sidebar area for Air Force page',
+	'before_widget' => '<div class="sidebar-shadow"></div><div class="sidebar-box">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>'));
+	
+register_sidebar(array(
+	'name'			=> 'Navy/Maritime Sidebar',
+	'id'            => 'nv-sidebar',
+	'description'   => 'Sidebar area for Navy/Maritime page',
+	'before_widget' => '<div class="sidebar-shadow"></div><div class="sidebar-box">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>'));	
 	
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 120, 120, true ); //generic thumbnail image size

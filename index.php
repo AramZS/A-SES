@@ -58,6 +58,11 @@
 				if (is_page('2910')) { if ( ! dynamic_sidebar( 'press-sidebar' ) ) :  endif; }
 				elseif (is_page('2976')) { if ( ! dynamic_sidebar( 'ic-sidebar' ) ) :  endif; }
 				elseif (is_page('2889')) { if ( ! dynamic_sidebar( 'ou-sidebar' ) ) :  endif; }
+					elseif (is_page('3015')) { if ( ! dynamic_sidebar( 'nv-sidebar' ) ) :  endif; }
+					
+					elseif (is_page('3002')) { if ( ! dynamic_sidebar( 'af-sidebar' ) ) :  endif; }	
+
+					elseif (is_page('2996')) { if ( ! dynamic_sidebar( 'uav-sidebar' ) ) :  endif; }					
 				elseif (is_tree('14')) { if ( ! dynamic_sidebar( 'about-sidebar' ) ) :  endif; }
 
 					elseif (is_page('3') || is_page(91)) { if ( ! dynamic_sidebar( 'bandwidth-sidebar' ) ) :  endif; }
