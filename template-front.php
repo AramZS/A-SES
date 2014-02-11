@@ -14,7 +14,12 @@ Template Name: Custom Template
 //  do_action( 'shoestrap_content_page_override' );
 
 
-  get_template_part('templates/page', 'header');
-  get_template_part('templates/content', 'page');
-
-  get_template_part('parts/tabber_2');
+//  get_template_part('templates/page', 'header');
+?>
+ 
+<div class="hidden-md hidden-lg">
+<?php get_template_part('templates/content', 'page'); ?>
+</div>
+<div class="hidden-xs hidden-sm">
+<?php get_template_part('parts/tabber_2'); ?>
+</div>
