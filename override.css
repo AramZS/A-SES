@@ -13,23 +13,11 @@ Bootstrap tames
     padding: 0;
     width: 100%;*/
 }
-
-/*.main-section.container{
-    border: 1px solid #EEEEEE;
-    padding: 0!important;
-}
-.main-section{
-    border: 1px solid #EEEEEE;
-    padding: 0!important;
-}*/
 .wrap.main-section .content {
 /*    float: right;
     margin-right: 5%;
     width: 75%;*/
 }
-
-
-
 .page-wrap{}
 .subnav{
 /*    float: left;
@@ -54,7 +42,10 @@ header
 ---------------------------------------------------------------------------------------------------- */
 .navbar-header {float: none;}
 .logo-offset{}
-.nav-offset{margin: 3em 0 0;}
+.nav-offset{
+    margin: 3em 0 0;
+    padding: 0;
+}
 
 /*
 logo
@@ -71,6 +62,52 @@ tagline
     font-size: 11px;
     position: relative;
     text-align: right;
+}
+/*
+nav
+---------------------------------------------------------------------------------------------------- */
+.mobile-nav {
+    float: left;
+    margin: 2em 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.mobile-nav ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+.mobile-nav ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+.mobile-nav ul li a {
+   display:block;
+   margin:0 0 0 1px;
+   padding:3px 10px;
+   color:#000;
+   text-decoration:none;
+   line-height:1.3em;
+}
+.mobile-nav ul li a:hover {
+   text-decoration: underline;
+}
+.mobile-nav ul li a.active,
+.mobile-nav ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
 }
 
 /*
@@ -90,7 +127,14 @@ nav.nav-main.navbar-collapse.collapse{
     padding: 0.75em;
 }
 
+/*
+front page
+---------------------------------------------------------------------------------------------------- */
 
+/*
+tabber
+-------------------------------------------*/
+.tabber{ margin:2em 0;}
 
 
 
@@ -181,4 +225,62 @@ credits-menu
 }
 .credits-menul li a:hover {
     color: #017DB0;
+}
+/*--------------------------------------------------
+  social icons - footer links
+  authored 1/15/13 - steven schobert
+  --------------------------------------------------*/
+.social_icons {
+    overflow:hidden;
+    margin:-2px 0 0 0;
+    float:right;
+    padding-bottom:10px;
+}
+.social_icons ul {
+    margin:0;
+    padding:0;
+}
+.social_icons ul li {
+    float:left;
+    list-style:none;
+    margin:0 0 0 9px;
+    padding:0;
+}
+.social_icons .follow_us {
+    font-weight:bold;
+    margin:1px 0 3px 0;
+    color:#323c46;
+    font-size:12px;
+}
+.social_icons ul li a {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:0;
+}
+.social_icons .facebook_icon {
+    background-position: -30px -30px;
+}
+.social_icons .youtube_icon {
+    background-position: -60px -60px;
+}
+.social_icons .linkedin_icon {
+    background-position: -90px -90px;
+}
+.social_icon {
+    background: url("data:image/png;charset=utf-8;base64,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") no-repeat;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+}
+
+@media only screen and (max-width: 479px) {
+.page-body > .main-section {
+    background:none;
+    border:none;
+    box-shadow:none;
+	padding:0 5%;
+}
+
+
 }
