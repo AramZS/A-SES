@@ -22,7 +22,7 @@ Template Name: Front
 <?php get_template_part('templates/content', 'page'); ?>
 </div>
 <div class="hidden-xs hidden-sm">
-<?php get_template_part('templates/tabber_2'); ?>
+<?php get_template_part('templates/parts/tabber_2'); ?>
 </div>
 
 <?php /*?>
