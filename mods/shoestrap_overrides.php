@@ -13,7 +13,7 @@ function my_custom_pre_wrap() {
 	echo '<div class="page-wrap container">';
 	echo '<div class="row row-offcanvas row-offcanvas-left">';
 	
-	get_template_part('parts/sidenav');
+	get_template_part('templates/sidenav');
 	
 	echo '<div class="page-body col-xs-12 col-sm-9 col-md-9">';
 
