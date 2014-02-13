@@ -20,7 +20,8 @@ Bootstrap tames
     margin-right: 5%;
     width: 75%;*/
 }
-.page-wrap{}
+.page-wrap{
+}
 .subnav{
 /*    float: left;
     width: 20%;*/
@@ -33,15 +34,26 @@ Bootstrap tames
 
 
 .page-body > .main-section{ 
-	background-color: #fafafa;
+	background-color: #fff;
 	border: 1px solid #E5E5E5;
 	box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
+.pg-bg{
+
+    background:url("i/bg-home-shell.jpg") no-repeat scroll left top rgba(0, 0, 0, 0);
+
+}
 
 /*
 header
 ---------------------------------------------------------------------------------------------------- */
+.navbar-default {
+    background-color:#F0F0F0;
+	border-left: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+	float:none;
+}
 .navbar-header {float: none;}
 .logo-offset{}
 .nav-offset{
@@ -52,9 +64,11 @@ header
 /*
 logo
 -------------------------------------------*/
-.navbar a.navbar-brand.logo {
+#navbar-brand{
+    display: block;
     height: auto;
-    padding: 11px;
+    margin: 0;
+    padding: 1em;
 }
 /*
 tagline
@@ -132,7 +146,14 @@ nav.nav-main.navbar-collapse.collapse{
 /*
 front page
 ---------------------------------------------------------------------------------------------------- */
-
+.feature-wrapper {
+    background: url("i/home-feature-rays.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    height: 300px;
+    position: absolute;
+    top: 104px;
+    width: 1024px;
+    z-index: 900;
+}
 /*
 tabber
 -------------------------------------------*/

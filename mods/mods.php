@@ -1,8 +1,9 @@
 <?php
 require_once locate_template('/mods/shoestrap_overrides.php');
 require_once locate_template('/mods/queue.php');
-//require_once locate_template('/mods/custom.php');
+require_once locate_template('/mods/custom.php');
 require_once locate_template('/mods/offcanvas/init.php');
+require_once locate_template('/mods/navonhover/init.php');
 //require_once locate_template('/mods/wp_bootstrap_navwalker.php');
 //require_once locate_template('/mods/legacy.php');
 //require_once locate_template('/mods/utils.php');

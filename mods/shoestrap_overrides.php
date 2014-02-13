@@ -1,9 +1,9 @@
 <?php
 function tbwa_below_top_navbar() {
 	if (is_front_page()) {
-		get_template_part('templates/parts/hero');
+		get_template_part('templates/add_hero');
 	}
-	get_template_part('templates/parts/mobilenav');
+	get_template_part('templates/add_mobilenav');
 }
 add_action( 'shoestrap_below_top_navbar', 'tbwa_below_top_navbar' );
 
@@ -13,12 +13,12 @@ function my_custom_pre_wrap() {
 	echo '<div class="page-wrap container">';
 	echo '<div class="row row-offcanvas row-offcanvas-left">';
 	
-	get_template_part('templates/parts/sidenav');
+	get_template_part('templates/add_sidenav');
 	
 	echo '<div class="page-body col-xs-12 col-sm-9 col-md-9">';
 
 	if ( !is_front_page() ) {
-	 get_template_part('templates/parts/togglenav');
+	 get_template_part('templates/add_togglenav');
 	}
 }
 add_action( 'shoestrap_pre_wrap', 'my_custom_pre_wrap' );
