@@ -17,9 +17,14 @@ Template Name: Front
 //  get_template_part('templates/page', 'header');
 ?>
  
-<div class="hidden-md hidden-lg">
+<?php /*?><div class="hidden-md hidden-lg">
 <?php get_template_part('templates/content', 'page'); ?>
 </div>
 <div class="hidden-xs hidden-sm">
 <?php get_template_part('parts/tabber_2'); ?>
 </div>
+<?php */?>
+
+<?php get_template_part('templates/content', 'page'); ?>
+
+<?php get_template_part('parts/tabber_2'); ?>
