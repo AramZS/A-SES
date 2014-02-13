@@ -3,22 +3,13 @@
     <div class="row">
         <div class="hidden-xs hidden-sm">		 
 		<?php if (is_front_page()) { shoestrap_footer_content(); }?>
-  		<?php get_template_part('parts/footer-menu');?>
-		<?php get_template_part('parts/credits');?>
+  		<?php get_template_part('templates/add_footer-menu');?>
+		<?php get_template_part('templates/add_credits');?>
         </div>
        
         <div class="hidden-md hidden-lg">
-		<?php get_template_part('parts/mobilefooterwidgets');?>
+		<?php get_template_part('templates/add_mobilefooterwidgets');?>
         </div>
-        
-		
-
-
-<?php /*?>		
-		<?php shoestrap_footer_content(); ?>
-  		<?php get_template_part('parts/footer-menu');?>
-		<?php get_template_part('parts/credits');?>
-<?php */?>
         <div class="hidden-md hidden-lg"><?php shoestrap_footer_html(); ?></div>
     </div>
   </div>
