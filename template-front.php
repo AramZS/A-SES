@@ -21,5 +21,5 @@ Template Name: Front
 <?php get_template_part('templates/content', 'page'); ?>
 </div>
 <div class="">
-<?php get_template_part('templates/tabber_2'); ?>
+<?php get_template_part('parts/tabber_2'); ?>
 </div>
