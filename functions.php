@@ -1,5 +1,4 @@
 <?php
-
 if ( !defined( 'REDUX_OPT_NAME' ) )
 	define( 'REDUX_OPT_NAME', 'shoestrap' );
 
@@ -79,5 +78,4 @@ function shoestrap_remove_page_titles() {
 add_action( 'wp', 'shoestrap_remove_page_titles' );
 
 // Shawn's added mods
-//require_once get_stylesheet_directory() . '/mods/mods.php';
 require_once locate_template('/mods/mods.php');
