@@ -1,8 +1,7 @@
 <?php
-
 function tbwa_below_top_navbar() {
 	if (is_front_page()) {
-		get_template_part('parts/hero');
+		get_template_part('templates/hero');
 	}
 	get_template_part('parts/mobilenav');
 }
