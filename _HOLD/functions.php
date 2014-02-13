@@ -1,20 +1,17 @@
 <?php
 
-if ( !defined( 'REDUX_OPT_NAME' ) )
-	define( 'REDUX_OPT_NAME', 'shoestrap' );
-
 // Prioritize loading of some necessary core modules
-if ( file_exists( get_template_directory() . '/lib/modules/redux/module.php' ) ) :
-	require_once get_template_directory() . '/lib/modules/redux/module.php';
+if ( file_exists( get_template_directory() . '/lib/modules/core.redux/module.php' ) ) :
+	require_once get_template_directory() . '/lib/modules/core.redux/module.php';
 endif;
 if ( file_exists( get_template_directory() . '/lib/modules/core/module.php' ) ) :
 	require_once get_template_directory() . '/lib/modules/core/module.php';
 endif;
-if ( file_exists( get_template_directory() . '/lib/modules/layout/module.php' ) ) :
-	require_once get_template_directory() . '/lib/modules/layout/module.php';
+if ( file_exists( get_template_directory() . '/lib/modules/core.layout/module.php' ) ) :
+	require_once get_template_directory() . '/lib/modules/core.layout/module.php';
 endif;
-if ( file_exists( get_template_directory() . '/lib/modules/blog/module.php' ) ) :
-	require_once get_template_directory() . '/lib/modules/blog/module.php';
+if ( file_exists( get_template_directory() . '/lib/modules/core.images/module.php' ) ) :
+	require_once get_template_directory() . '/lib/modules/core.images/module.php';
 endif;
 
 // Include some admin options.
@@ -57,16 +54,6 @@ function shoestrap_child_load_stylesheet() {
 
 
 /*
- * Enqueue the stylesheet created with Grunt
- */
-function shoestrap_child_grunt_stylesheet() {
-	wp_enqueue_style( 'shoestrap_child_grunt_css', get_stylesheet_directory_uri() . '/assets/css/style.css', false, null );
-}
-// Uncomment the line below to enqueue the stylesheet
-// add_action('wp_enqueue_scripts', 'shoestrap_child_grunt_stylesheet', 100);
-
-
-/*
  * Remove page titles
  */
 function shoestrap_empty_page_title() {}
@@ -77,5 +64,6 @@ function shoestrap_remove_page_titles() {
 	endif;
 }
 add_action( 'wp', 'shoestrap_remove_page_titles' );
+
 // Shawn's added mods
 require_once locate_template('/mods/mods.php');
