@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Custom Template
+Template Name: Front
 */
 
 //if ( !has_action( 'shoestrap_page_header_override' ) )
