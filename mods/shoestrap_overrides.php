@@ -1,4 +1,41 @@
 <?php
+/*-----------------------------------------------------------------------------------*/
+/* TITLES
+/*-----------------------------------------------------------------------------------*/
+
+function my_shoestrap_content_override() {
+  echo 'This is my custom content';
+}
+add_action( 'shoestrap_content_override', 'my_shoestrap_content_override' );
+
+
+
+
+
+function my_custom_before_the_content() {
+  echo 'This content will appear in the beginning of the loop';
+}
+add_action( 'shoestrap_before_the_content', 'my_custom_before_the_content' );		  
+
+
+
+
+function my_custom_bottom_content() {
+  echo 'This content will appear at the very bottom of all posts';
+}
+add_action( 'shoestrap_in_article_bottom', 'my_custom_bottom_content' );
+
+
+
+
+function tbwa_before_main() {
+  echo 'This content will appear at the very bottom of all posts';
+}
+add_action( 'shoestrap_before_main', 'tbwa_before_main' );
+
+
+
+
 function tbwa_below_top_navbar() {
 if (is_front_page()) {
 	get_template_part('parts/hero');
@@ -27,8 +64,11 @@ global $post;
 if ( !is_front_page() ) {
 echo get_template_part('parts/togglenav');
 }
-?>   
-<?php }
+?>
+
+<?php
+
+}
 add_action( 'shoestrap_pre_wrap', 'my_custom_pre_wrap' );
 
 //*
