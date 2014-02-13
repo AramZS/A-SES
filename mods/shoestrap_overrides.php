@@ -1,10 +1,10 @@
 <?php
 function tbwa_below_top_navbar() {
 if (is_front_page()) {
-  echo get_template_part('parts/hero');
+	get_template_part('parts/hero');
 }
 
-echo get_template_part('parts/mobilenav');
+get_template_part('parts/mobilenav');
 
 }
 add_action( 'shoestrap_below_top_navbar', 'tbwa_below_top_navbar' );
