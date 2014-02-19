@@ -2,13 +2,13 @@
 <header class="banner <?php echo shoestrap_navbar_class(); ?>" role="banner">
   <div class="<?php echo shoestrap_navbar_container_class(); ?>">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-main, .nav-extras">
+<?php /*?>      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-main, .nav-extras">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      
+      <?php */?>
 <div class="row">     
 
     <div class="logo-offset col-md-2">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="nav-offset col-md-9">
-	    <div class="tagline"><?php if (is_front_page()) echo "SES Government Solutions, formerly known as Americom Government Services (AGS)"; ?></div>
+	    <div class="tagline "><?php if (is_front_page()) echo "SES Government Solutions, formerly known as Americom Government Services (AGS)"; ?></div>
         <nav class="nav-main navbar-collapse collapse" role="navigation">
           <?php
             do_action( 'shoestrap_inside_nav_begin' );
