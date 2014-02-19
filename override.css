@@ -12,8 +12,9 @@ Bootstrap tames
 .container {
 /*    max-width: 1020px;
     padding: 0;
-    width: 100%;*/
+    width: 100%;
     width: 1020px;
+*/
 }
 .wrap.main-section .content {
 /*    float: right;
@@ -80,7 +81,7 @@ tagline
     text-align: right;
 }
 /*
-nav
+mobile nav
 ---------------------------------------------------------------------------------------------------- */
 .mobile-nav {
     float: left;
@@ -158,9 +159,54 @@ front page
 tabber
 -------------------------------------------*/
 .tabber{ margin:2em 0;}
+/*
+tabs
+-------------------------------------------*/
+.nav-tabs > li > a {
+	color: #000;
+    font-size: 0.8em;
+	margin:0;
+    padding: 0.5em 1em;
+
+    border-bottom: 1px solid #777788;
+    border-left: 1px solid #777788;
+    border-top: 1px solid #777788;
 
 
 
+	 background-color: #f8f8f8;
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#ffffff'); /* for IE */
+	 background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ffffff)); /* for webkit browsers */
+	 background: -moz-linear-gradient(top,  #efefef,  #ffffff); /* for firefox 3.6+ */ 
+
+	border-radius:0;
+}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {
+    color: #017DB0;
+border-bottom: 1px solid #777788;
+border-left: 1px solid #777788;
+border-top: 1px solid #777788;
+border-bottom: 1px solid #fff;
+	
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff'); /* for IE */
+	 background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff)); /* for webkit browsers */
+	 background: -moz-linear-gradient(top,  #ffffff,  #ffffff); /* for firefox 3.6+ */ 	
+}
+
+.tab-content{
+    border-bottom: 1px solid #777788;
+    border-left: 1px solid #777788;
+    border-top: 1px solid #777788;
+    margin-top: -1px;
+    padding: 5px;
+}
+.tab-content > .tab-pane {
+    display: none;
+    padding: 1em;
+}
 /*
 footer
 ---------------------------------------------------------------------------------------------------- */
@@ -170,6 +216,10 @@ footer.content-info {
 	padding: 0;
 }
 
+/*
+footer widgets
+-------------------------------------------*/
+footer.content-info .widgets{}
 
 /*
 footer-menu
