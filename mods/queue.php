@@ -21,7 +21,9 @@
 // OVERRIDEs
 function overrides()
 {
+	wp_enqueue_style('temp_style', get_stylesheet_directory_uri() . '/ss-style.css', false, null);
 	wp_enqueue_style('override_style', get_stylesheet_directory_uri() . '/override.css', false, null);
+	//	wp_enqueue_style('override_style', get_stylesheet_directory_uri() . '/mods/social-buttons-3.css', false, null);	
 	//wp_enqueue_script('tabber_js', get_stylesheet_directory_uri() . '/mods/tabber.js', false, null);
 }
 add_action('wp_enqueue_scripts', 'overrides',9999);

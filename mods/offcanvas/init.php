@@ -5,4 +5,4 @@ function offcanvas() {
 	wp_register_script('offcanvas_js', get_stylesheet_directory_uri() . '/mods/offcanvas/offcanvas.js', false, null, true);
 	wp_enqueue_script('offcanvas_js');  	 
 }
-add_action('wp_enqueue_scripts', 'offcanvas', 999);
+add_action('wp_enqueue_scripts', 'offcanvas', 9);

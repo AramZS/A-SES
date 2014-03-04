@@ -1,4 +1,4 @@
-<div id="mobile-nav" class="hidden-md hidden-lg clearfix">
+<div id="mobile-nav" class="visible-xs clearfix">
     <nav id="mobile-nav-1" class="mobile-nav clearfix" role="navigation">
       <?php
         if (has_nav_menu('mobile_menu1')) :
