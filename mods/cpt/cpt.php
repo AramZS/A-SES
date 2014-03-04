@@ -6,13 +6,13 @@ if (!function_exists('create_fp_sections')) {
     function create_fp_sections()
     {
         $fps_args = array(
-            'label' => __('Home Tabs', 'framework'),
-            'singular_label' => __('Tab', 'framework'),
+            'label' => __('Home Boxes', 'framework'),
+            'singular_label' => __('Home Box', 'framework'),
             'public' => false,
             'show_ui' => true,
 			'show_in_menu' => true,
 			'menu_position' => 5,			
-            'capability_type' => 'page',
+            'capability_type' => 'post',
             'hierarchical' => false,
             'rewrite' => true,
             'supports' => array('title', 'editor', 'page-attributes'));
