@@ -131,3 +131,14 @@ function wap8_has_siblings() {
      }
 
 }
+// Add specific CSS class by filter
+	add_filter('body_class','my_class_names');
+	function my_class_names($classes) {
+	if ( !is_front_page() ) {
+		// add 'class-name' to the $classes array
+		$classes[] = 'not-front';
+		}
+		// return the $classes array
+		return $classes;
+	
+}
