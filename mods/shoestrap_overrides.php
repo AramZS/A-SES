@@ -1,4 +1,5 @@
 <?php
+//
 function tbwa_below_top_navbar() {
 	if (is_front_page()) {
 		get_template_part('templates/add_hero');
@@ -6,9 +7,7 @@ function tbwa_below_top_navbar() {
 	get_template_part('templates/add_mobilenav');
 }
 add_action( 'shoestrap_below_top_navbar', 'tbwa_below_top_navbar' );
-
-
-
+//
 function my_custom_pre_wrap() {
 	echo '<div class="page-wrap container boxed-container">';
 	echo '<div class="row row-offcanvas row-offcanvas-left">';
@@ -22,13 +21,7 @@ function my_custom_pre_wrap() {
 	}
 }
 add_action( 'shoestrap_pre_wrap', 'my_custom_pre_wrap' );
-
-
-//function my_custom_after_wrap() {
-//}
-//add_action( 'shoestrap_after_wrap', 'my_custom_after_wrap' );
-
-
+//
 function tbwa_after_footer() {
   echo '</div></div></div>';
 }
