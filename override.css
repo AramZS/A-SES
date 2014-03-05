@@ -204,7 +204,6 @@ border-bottom: 1px solid #fff;
     padding: 5px;
 }
 .tab-content > .tab-pane {
-    display: none;
     padding: 1em;
 }
 /*
