@@ -24,8 +24,3 @@ Template Name: Front
 <div class="hidden-xs hidden-sm">
 <?php get_template_part('templates/add_tabs'); ?>
 </div>
-
-<?php /*?>
-<?php get_template_part('templates/content', 'page'); ?>
-<?php get_template_part('templates/tabber_2'); ?>
-<?php */?>
