@@ -85,16 +85,24 @@ tagline
 nav
 -------------------------------------------*/
 nav.nav-main.navbar-collapse.collapse{
-    background:#F0F0F0;
+    background:#fff;
+	background: url("i/bg-inner-content.jpg") no-repeat scroll right top #FFFFFF;
+	
     /*box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);*/
-	-moz-box-shadow:0px 0px 5px #323a45;
+/*	-moz-box-shadow:0px 0px 5px #323a45;
 	-webkit-box-shadow:0px 0px 5px #323a45;
 	-o-box-shadow:0px 0px 5px #323a45;
 	box-shadow:0px 0px 5px #323a45;
 
-/*-webkit-box-shadow: 0 -3px 3px -3px black, 3px 0px 3px -3px black, -3px 0px 3px -3px black;
+-webkit-box-shadow: 0 -3px 3px -3px black, 3px 0px 3px -3px black, -3px 0px 3px -3px black;
 -moz-box-shadow:    0 -3px 3px -3px black, 3px 0px 3px -3px black, -3px 0px 3px -3px black;
-box-shadow:         0 -3px 3px -3px #323a45, 3px 0px 3px -3px #323a45, -3px 0px 3px -3px #323a45;*/
+box-shadow:         0 -3px 3px -3px #323a45, 3px 0px 3px -3px #323a45, -3px 0px 3px -3px #323a45;
+  box-shadow: 
+  0px 8px 10px gray, 
+        -10px 8px 15px gray, 
+		10px 8px 15px gray;*/
+ box-shadow: 0 10px 0 #FFFFFF, 0 0 10px #CCCCCC;	
+
 }
 .navbar-default .navbar-nav > li > a {
     border-right: 1px solid #CCCCCC;
@@ -111,7 +119,34 @@ box-shadow:         0 -3px 3px -3px #323a45, 3px 0px 3px -3px #323a45, -3px 0px 
     background:none;
     color: #007DAF!important;
 }
-
+/*.front-bump-shadow {
+    background: url("i/shadow-border.png") repeat-x scroll left -10px rgba(0, 0, 0, 0);
+    display: block;
+    height: 6px;
+    margin: -9px 0 0;
+    overflow: visible;
+    position: relative;
+}
+.front-bump-shadow:before {
+    background: url("i/shadow-border.png") repeat scroll -21px -26px rgba(0, 0, 0, 0);
+    content: "";
+    height: 48px;
+    left: -18px;
+    position: absolute;
+    top: 0;
+    width: 18px;
+    z-index: 2;
+}
+.front-bump-shadow:after {
+    background: url("i/shadow-border.png") repeat scroll -40px -26px rgba(0, 0, 0, 0);
+    content: "";
+    height: 48px;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    width: 18px;
+    z-index: 2;
+}*/
 /*
 mobile nav
 -------------------------------------------*/
@@ -180,12 +215,21 @@ page structure
 }
 .page-body > .main-section {
 	background-color:#fff;
-    border: 1px solid #E5E5E5;
-    /*box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);*/
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+
+    /*box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow:0px 0px 5px #323a45;
 	-webkit-box-shadow:0px 0px 5px #323a45;
 	-o-box-shadow:0px 0px 5px #323a45;
-	box-shadow:0px 0px 5px #323a45;	
+	box-shadow:0px 0px 5px #323a45;	*/
+ box-shadow: 0 0 10px #CCCCCC, 0 10px 0 #FFFFFF;	
+ 
+ 
+/* 	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;*/
 }
 /*
 front page
@@ -684,6 +728,11 @@ front page
     /* tablets and desktop */
 }
 
+@media only screen and (max-width: 1000px) {
+.navbar-default .navbar-nav > li > a {
+    font-size: 0.8em;
+}
+}
 @media only screen and (max-width: 767px) {
     /* phones 
 	body{display:none;}*/

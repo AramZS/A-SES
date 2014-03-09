@@ -23,7 +23,7 @@
             <?php endif; ?>            
         </div>
         <div class="footer-html">
-			<?php shoestrap_footer_html(); ?>
+			<?php //shoestrap_footer_html(); ?>
         </div>
     </div>
   </div>
