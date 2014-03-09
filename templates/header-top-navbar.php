@@ -20,7 +20,8 @@
             <div class="tagline">
                 <div class="tagline-txt"><?php if (is_front_page()) echo "SES Government Solutions, formerly known as Americom Government Services (AGS)"; ?></div>
             </div>
-            <div class="nav-holder">        
+            <div class="nav-holder">
+            <div class="front-bump-shadow"></div>        
                 <nav class="nav-main navbar-collapse collapse" role="navigation">
                   <?php
                     do_action( 'shoestrap_inside_nav_begin' );
