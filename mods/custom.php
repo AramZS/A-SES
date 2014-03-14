@@ -84,6 +84,7 @@ function add_sidebars_init() {
 add_action('widgets_init', 'add_sidebars_init', 21);
 // Add new image sizes
 add_image_size( 'thumbnail', 9999, 9999, false );
+add_image_size( 'home', 600, 9999, false );
 add_image_size( 'full', 9999, 9999, false );
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );

@@ -5,13 +5,13 @@ a {color: #017DB0;}
 .wrap.main-section .content .bg {padding: 0;}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color:#323A45;
-    font-family:'SESAllumiBold', Arial,Helvetica,Verdana,sans-serif;
-    font-size: 1.2em;
+    font-family:'SESAllumiLight', Arial,Helvetica,Verdana,sans-serif;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 16px;
+    line-height: 24px;
 }
 h1, .h1, h2, .h2, h3, .h3 {
-    margin: 0.5em 0 1em;
+    margin: 5px 0 10px;
 }
 /*
 body
@@ -86,7 +86,6 @@ tagline
     max-width: 780px;
     padding-left: 0;	
 }
-
 .tagline {
     height:68px;
     position: relative;
@@ -505,7 +504,7 @@ slidenav
 }
 
 #slide-nav .navbar-toggle {
-    background-color: ;
+    background-color:transparent;
     background-image: none;
     border: 1px solid rgba(0, 0, 0, 0);
     float: left;
@@ -610,13 +609,13 @@ footer widgets 1
 	border-top: 1px solid #000;
 	float:left;
 }
-
+#footer-widgets-1 .widget-inner{ padding: 5px 15px;}
 #footer-widgets-1 .widget:first-child{
-    width:22%;
+    width:27%;
 }
 #footer-widgets-1 .widget:last-child{
     margin-left:3%;
-    width: 75%;
+    width: 70%;
 }
 /*
 footer widgets 2
@@ -741,16 +740,24 @@ ep post widget
     margin: 0 !important;
     padding: 0!important;
 }
-.widget.eppostwidget ul.light li a, .eppostwidget a.link-btn.light {
-    background: none repeat scroll 0 0 #FAFAFA;
-    border: 1px solid #E9E9E9;
+.widget.eppostwidget ul.light li a{
+    background: none;
+    border: none;
     color: #333333;
+    padding:5px 0;
+}
+.widget.eppostwidget ul.light li a:hover{
+    background: none;
+    color: #017DB0;
+}
+.widget.eppostwidget ul li strong {
+    font-size: 12px;
+    font-weight: normal;
 }
 /*
 ep post mobile footer widget
 -------------------------------------------*/
-.mobile-footer .widget.eppostwidget ul.light li a, 
-.mobile-footer .widget.eppostwidget a.link-btn.light {
+.mobile-footer .widget.eppostwidget ul.light li a {
     background: none;
     border: none;
     color: #017DB0;
@@ -763,15 +770,17 @@ ep post mobile footer widget
     font-weight: normal;
 
 } 
+.mobile-footer .widget.eppostwidget a.link-btn.light{display:none;}
 /*
 social icons
 -------------------------------------------*/
 .sidebar .widget.simple-social-icons .widget-title{    
     display: inline-block;
     float: left;
-    margin: 0 5px 0 0;
-    margin: 0 0.5em 0 0;
+    line-height: 24px;
+    margin: 0 10px 0 0;
 }
+.container .simple-social-icons ul li {margin: 0 6px !important;}
 .container .simple-social-icons ul li a,
 .container .simple-social-icons ul li a:hover{
     color: #fff !important;
@@ -793,6 +802,8 @@ social icons
 .simple-social-icons ul li.social-youtube a:hover{background-color: #F44F51 !important;}
 
 .simple-social-icons ul li a:hover {opacity:0.7;}
+.mobile-footer .widget.simple-social-icons ul li a,
+.mobile-footer .widget.simple-social-icons ul li a:hover{ font-size:20px;}
 /*
 WordPress Core
 -------------------------------------------*/
@@ -916,6 +927,7 @@ front page
 		padding: 5px 10px;
 		padding: 0.5em 1em;
 	}
+	.breadTrail{display:none;}
 	/*
 	sidebar
 	-------------------------------------------*/
@@ -927,8 +939,8 @@ front page
 
 	.mobile-footer{
 		background:none;
-		padding: 10px;		
-		padding:1em;
+		padding: 0 10px;		
+		padding:0 1em;
 	}
 	
 	/*
@@ -964,7 +976,7 @@ front page
 	.main-wrap {
 		background: none;
 		box-shadow: none;
-		padding: 1em;
+		padding: 10px 10px 0;
 	}
 	
 	.sidebar .widget .widget-title {margin:0 0 0.5em;}

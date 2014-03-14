@@ -66,39 +66,6 @@ function new_excerpt_more($more) {
 add_filter('excerpt_more','__return_false');
 
 
-class My_Walker extends Walker_Nav_Menu
-{
-    function start_el(&$output, $item, $depth, $args) {
-        global $wp_query;
-        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-        $class_names = $value = '';
-
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-        $class_names = ' class="' . esc_attr( $class_names ) . '"';
-
-        $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
-
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-        $attributes .= ' data-id="'. esc_attr( $item->object_id        ) .'"';
-        $attributes .= ' data-slug="'. esc_attr(  basename(get_permalink($item->object_id )) ) .'"';
-
-
-
-        $item_output = $args->before;
-        $item_output .= '<a'. $attributes .'>';
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>'; /* This is where I changed things. */
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
-}
 
 
 /**
@@ -303,4 +270,190 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			echo $fb_output;
 		}
 	}
+}
+
+class My_Walker_1 extends Walker_Page {
+
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+
+        if ($depth == 0) {
+            $output .= "\n$indent<div class='container'><div class='container2'><ul>\n";
+        } else {
+            $output .= "\n$indent<ul class='children'>\n";
+        }
+    }
+
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+
+        if ($depth == 0) {
+            $output .= "$indent</ul></div></div>\n";
+        } else {
+            $output .= "$indent</ul>\n";
+        }
+    }
+}
+
+class My_Walker extends Walker_Nav_Menu
+{
+    function start_el(&$output, $item, $depth, $args) {
+        global $wp_query;
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+        $class_names = $value = '';
+
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+        $class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+        $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $attributes .= ' data-id="'. esc_attr( $item->object_id        ) .'"';
+        $attributes .= ' data-slug="'. esc_attr(  basename(get_permalink($item->object_id )) ) .'"';
+
+
+
+        $item_output = $args->before;
+        $item_output .= '<a'. $attributes .'>';
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= '</a>'; /* This is where I changed things. */
+        $item_output .= $args->after;
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}
+
+class Clean_Walker extends Walker_Page {
+    function start_lvl(&$output, $depth) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul>\n";
+    }
+    function start_el(&$output, $page, $depth, $args, $current_page) {
+        if ( $depth )
+            $indent = str_repeat("\t", $depth);
+        else
+            $indent = '';
+        extract($args, EXTR_SKIP);
+        $class_attr = '';
+        if ( !empty($current_page) ) {
+            $_current_page = get_page( $current_page );
+            if ( (isset($_current_page->ancestors) && in_array($page->ID, (array) $_current_page->ancestors)) || ( $page->ID == $current_page ) || ( $_current_page && $page->ID == $_current_page->post_parent ) ) {
+                $class_attr = 'sel';
+            }
+        } elseif ( (is_single() || is_archive()) && ($page->ID == get_option('page_for_posts')) ) {
+            $class_attr = 'sel';
+        }
+        if ( $class_attr != '' ) {
+            $class_attr = ' class="' . $class_attr . '"';
+            $link_before .= '<strong>';
+            $link_after = '</strong>' . $link_after;
+        }
+        $output .= $indent . '<li' . $class_attr . '><a href="' . make_href_root_relative(get_page_link($page->ID)) . '"' . $class_attr . '>' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+
+        if ( !empty($show_date) ) {
+            if ( 'modified' == $show_date )
+                $time = $page->post_modified;
+            else
+                $time = $page->post_date;
+            $output .= " " . mysql2date($date_format, $time);
+        }
+    }
+}
+
+// GIVE CHILDREN LIST ITEMS CLASS OF CHILD
+// freely adapted from http://resources.mdbitz.com/2010/08/creating-a-wordpress-custom-page-walker/
+class Walker_Child_Classes extends Walker_page {
+    function start_el(&$output, $page, $depth, $args, $current_page) {
+            if ( $depth )
+                $indent = str_repeat("\t", $depth);
+            else
+                $indent = '';
+ 
+            extract($args, EXTR_SKIP);
+ 
+            $output .= $indent . '<li><a href="' . get_page_link($page->ID) . '" title="' . esc_attr( wp_strip_all_tags( apply_filters( 'the_title', $page->post_title, $page->ID ) ) ) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+        }
+}
+function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
+
+
+    // this is where page_item_has_children get it's class, we will replace it later 
+    if( isset( $args['pages_with_children'][ $page->ID ] ) ) {
+        $css_class[] = 'dropdown'; // replace page_item_has_children with dropdown
+
+    // we will use it later to add the data-toggle attribute and the class dropdown-toggle to the <a> tag in the parent li
+        $activate_dropdown_attributes_on_href = 'class="dropdown-toggle"  data-toggle="dropdown"';
+    // bottstrap's dropdown icon, will be added inside the <a>
+        $dropdown_icon = ' <b class="caret"></b>';
+    }
+
+
+    // lets check if we have a dropdown class - if yes, we set the href as # , if not - then as the permalink
+    if (strpos($css_class, 'dropdown', 1) > 0) {
+            $custom_page_href = "#";
+    } else {
+            $custom_page_href = get_permalink($page->ID);
+    }
+
+
+    // Now lets set the output with all the changes we made,
+    // $custom_page_href - sets the url
+    // $activate_dropdown_attributes_on_href - sets the data attributes if they exist
+    // $dropdown_icon - adds bootstrap's icon
+
+    $output .= $indent . '<li class="' . $css_class . '"><a '.$activate_dropdown_attributes_on_href.' href="' . $custom_page_href . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . $dropdown_icon.'</a>';
+
+}
+
+class SH_Child_Only_Walker extends Walker_page {
+ 
+    // Don't start the top level
+    function start_lvl(&$output, $depth=0, $args=array()) {
+        if( 0 == $depth )
+            return;
+        parent::start_lvl(&$output, $depth,$args);
+    }
+ 
+    // Don't end the top level
+    function end_lvl(&$output, $depth=0, $args=array()) {
+        if( 0 == $depth )
+            return;
+        parent::end_lvl(&$output, $depth,$args);
+    }
+ 
+    // Don't print top-level elements
+    function start_el(&$output, $item, $depth=0, $args=array()) {
+        if( 0 == $depth )
+            return;
+        parent::start_el(&$output, $item, $depth, $args);
+    }
+ 
+    function end_el(&$output, $item, $depth=0, $args=array()) {
+        if( 0 == $depth )
+            return;
+        parent::end_el(&$output, $item, $depth, $args);
+    }
+ 
+    // Only follow down one branch
+    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+ 
+        // Check if element as a 'current element' class
+        $current_element_markers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
+        $current_class = array_intersect( $current_element_markers, $element->classes );
+ 
+        // If element has a 'current' class, it is an ancestor of the current element
+        $ancestor_of_current = !empty($current_class);
+ 
+        // If this is a top-level link and not the current, or ancestor of the current menu item - stop here.
+        if ( 0 == $depth && !$ancestor_of_current)
+            return
+ 
+        parent::display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output );
+    }
 }
