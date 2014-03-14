@@ -58,11 +58,11 @@ $left                     = ( shoestrap_getVariable( 'navbar_toggle' ) == 'left'
 
   <?php do_action('shoestrap_header_media'); ?>
 
-  <div class="wrap main-section <?php echo shoestrap_container_class(); ?>" role="document">
+  <div>
     <?php do_action('shoestrap_pre_content'); ?>
 
-    <div class="content">
-      <div class="row bg">
+    <div>
+      <div class="main-wrap clearfix">
 	  <?php if ( has_action( 'shoestrap_breadcrumbs' ) ) : ?>
         <?php do_action('shoestrap_breadcrumbs'); ?>
       <?php endif; ?>

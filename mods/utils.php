@@ -65,43 +65,7 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more','__return_false');
 
-/*-----------------------------------------------------------------------------------*/
-/*	change section urls
-/*-----------------------------------------------------------------------------------*/
-    function  coll_fix_menu($items)
-    {
-        foreach ($items as $item) {
-            if($item->object == 'fp-sections'){
-                $post = get_post($item->object_id);
-                $item->url = (is_Home()) ? "/#" . $post->post_name : home_url() . "/#" . $post->post_name;
-            }
-        }
-        return $items;
-    }
 
-    add_filter('wp_nav_menu_objects', 'coll_fix_menu');
-
-/*-----------------------------------------------------------------------------------*/
-/*	change section urls
-/*-----------------------------------------------------------------------------------*/
-//
-//if (!function_exists('coll_fix_menu')) {
-//    function  coll_fix_menu($items)
-//    {
-//        foreach ($items as $item) {
-//            if($item->object == 'fp-sections'){
-//                $post = get_post($item->object_id);
-//                $item->url = (is_Home()) ? "#" . $post->post_name : home_url() . "#" . $post->post_name;
-//            }
-//        }
-//        return $items;
-//    }
-//
-//    add_filter('wp_nav_menu_objects', 'coll_fix_menu');
-//
-//}
-//	
-// nav menu walker
 class My_Walker extends Walker_Nav_Menu
 {
     function start_el(&$output, $item, $depth, $args) {
