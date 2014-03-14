@@ -4,13 +4,49 @@ if ( !is_front_page() ) {
 ?>
 <div id="side-nav-holder" class="clearfix">
 
-    <nav id="side-nav" class="side-nav" role="navigation">
+
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+<button id="nav-close" data-canvas=".canvas" data-target=".navmenu" data-recalc="false" data-toggle="offcanvas" class="navbar-toggle" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+</button>
+  <a class="navmenu-brand" href="#">Brand</a>
+  <ul class="nav navmenu-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu navmenu-nav">
+            <li><a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Action</a></li>
+            <li><a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Another action</a></li>
+            <li><a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Separated link</a></li>
+            <li><a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">One more separated link</a></li>
+          </ul>
+        </li>
+  </ul>
+</nav>
+<?php /*?><div class="navbar navbar-default navbar-fixed-top">
+  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div><?php */?>
+
+
+
+<?php /*?>    <nav id="side-nav" class="side-nav" role="navigation">
       <?php
         if (has_nav_menu('sidenav')) :
           wp_nav_menu( array( 'theme_location' => 'sidenav', 'menu_class' => 'list-group' ) );
         endif;
       ?>
-    </nav>
+    </nav><?php */?>
 </div> 
 <div class="slide navmenu-fixed-left offcanvas-sm">
       <?php
