@@ -1,13 +1,5 @@
-<?php /*?><div role="navigation" id="left-sidebar" class="col-xs-6 col-sm-2 sidebar-offcanvas">
-<?php
-if ( !is_front_page() ) {
-?>
-
-
-<?php } ?>
-</div><!--/span-->
-<?php */?>
     <div class="navmenu navmenu-default navmenu-fixed-left">
+    <span class="close-slide-nav el-icon-remove-circle"></span>
       <a class="navmenu-brand" href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#">Project name</a>
       <ul class="nav navmenu-nav">
         <li><a href="http://jasny.github.io/bootstrap/examples/navmenu/">Slide in</a></li>

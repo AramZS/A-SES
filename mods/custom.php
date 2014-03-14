@@ -1,22 +1,23 @@
 <?php 
-/**
- * Custom functions
-**/
- 
+// * Custom functions
+// Remove extra nav menus
+function remove_default_menu(){
+	unregister_nav_menu('secondary_navigation');
+}
+add_action( 'after_setup_theme', 'remove_default_menu', 11 );
 // Add extra menus
 register_nav_menus( array(
 	'mobile_menu1' => 'Mobile Menu 1',
 	'mobile_menu2' => 'Mobile Menu 2',
 	'sidenav'	=> 'Side Menu',
-	'footer_menu' => 'Footer Menu',
-	'credits_menu' => 'Credits Menu'	
-) );
-
+//	'footer_menu' => 'Footer Menu',
+//	'credits_menu' => 'Credits Menu'	
+));
 //function shawn_unreg_sidebars() {
 function remove_some_widgets(){
 //	unregister_sidebar( 'sidebar-primary' );
 //	unregister_sidebar( 'sidebar-secondary' );
-	unregister_sidebar( 'jumbotron' );
+//	unregister_sidebar( 'jumbotron' );
 	unregister_sidebar( 'header-area' );
 	unregister_sidebar( 'navbar-slide-down-top' );
 	unregister_sidebar( 'navbar-slide-down-1' );
@@ -31,6 +32,14 @@ function remove_some_widgets(){
 add_action( 'init', 'remove_some_widgets', 11 );
 // Register sidebars and widgets
 function add_sidebars_init() {	
+	register_sidebar(array(
+		'name'          => __('Left Sidebar', 'roots'),
+		'id'            => 'left-sidebar',
+		'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+		'after_widget'  => '</div></section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	));  
 	register_sidebar(array(
 		'name'          => __('Footer Widgets 1', 'roots'),
 		'id'            => 'footer-widgets-1',
@@ -64,12 +73,12 @@ function add_sidebars_init() {
 		'after_title'   => '</h3>',
 	));   
   register_sidebar(array(
-    'name'          => __('Footer Menu', 'roots'),
-    'id'            => 'footer-menu',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '<h3 class="widget-title">',
-    'after_title'   => '</h3>',
+		'name'          => __('Footer Menu', 'roots'),
+		'id'            => 'footer-menu',
+		'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+		'after_widget'  => '</div></section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
   ));  
 }
 add_action('widgets_init', 'add_sidebars_init', 21);
@@ -142,3 +151,12 @@ function wap8_has_siblings() {
 		return $classes;
 	
 }
+
+//	// Add specific CSS class by filter
+//	function my_class_names($classes) {
+//		if ( is_page_template('template-ppc.php') ) {
+//			$classes[] = 'ppc';
+//		}
+//	return $classes;
+//	}
+//	add_filter('body_class','my_class_names');

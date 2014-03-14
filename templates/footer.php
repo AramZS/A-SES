@@ -1,6 +1,5 @@
 <footer id="normal-footer" class="hidden-xs clearfix" role="contentinfo">
   <?php if ( shoestrap_getVariable( 'site_style' ) != 'boxed'  ) : ?><div class="<?php echo shoestrap_container_class(); ?>"><?php endif; ?>
-    <div class="row">
         <div id="footer-widgets" class=" clearfix">		 
 			<?php if (is_front_page()) { ?>
 				<?php if ( is_active_sidebar( 'footer-widgets-1' ) ) : ?>
@@ -9,7 +8,6 @@
                 </div>
                 <?php endif; ?>
 			<?php }?>
-
 			<?php if ( is_active_sidebar( 'footer-widgets-2' ) ) : ?>
                 <div id="footer-widgets-2" class="footer-widgets clearfix">
                     <?php dynamic_sidebar( 'footer-widgets-2' ); ?>
@@ -22,16 +20,11 @@
                 </div>
             <?php endif; ?>            
         </div>
-        <div class="footer-html">
-			<?php //shoestrap_footer_html(); ?>
-        </div>
-    </div>
   </div>
 </footer>
 <footer id="mobile-footer" class="mobile-footer visible-xs clearfix" role="contentinfo">
   <?php if ( shoestrap_getVariable( 'site_style' ) != 'boxed'  ) : ?><div class="<?php echo shoestrap_container_class(); ?>"><?php endif; ?>
-    <div class="row">
-        <aside id="mobile-widgets" class="siderbar">
+        <aside id="mobile-widgets" class="sidebar">
 			<?php if ( is_active_sidebar( 'mobile-footer-widgets' ) ) : ?>
 				<?php dynamic_sidebar( 'mobile-footer-widgets' ); ?>
             <?php endif; ?>    
@@ -40,21 +33,8 @@
 			<?php shoestrap_footer_html(); ?>
         </div>
     </div>
-  </div>
 </footer>
-
-<script>            
-    jQuery(document).ready(function() {
-
-//		$('ul.nav li.dropdown').hover(function() {
-//		  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-//		}, function() {
-//		  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
-//		});  
-//		$('[data-toggle=offcanvas]').click(function() {
-//			$('.row-offcanvas').toggleClass('active');
-//		});
-
-
-    });
+<script>
+jQuery("body").fitVids();
+jQuery(".main").fitVids();
 </script>
