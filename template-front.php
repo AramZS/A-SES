@@ -18,9 +18,9 @@ Template Name: Front
 ?>
  
 
-<div class="hidden-md hidden-lg">
+<div class="visible-xs">
 <?php get_template_part('templates/content', 'page'); ?>
 </div>
-<div class="hidden-xs hidden-sm">
+<div class="hidden-xs">
 <?php get_template_part('templates/add_tabs'); ?>
 </div>
