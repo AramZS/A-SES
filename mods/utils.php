@@ -1,4 +1,92 @@
-<?php 
+<?php
+//
+// http://www.wpbeginner.com/wp-themes/wordpress-body-class-101-tips-and-tricks-for-theme-designers/
+add_filter('body_class','browser_body_class');
+function browser_body_class($classes) {
+	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
+
+	if($is_lynx) $classes[] = 'lynx';
+	elseif($is_gecko) $classes[] = 'gecko';
+	elseif($is_opera) $classes[] = 'opera';
+	elseif($is_NS4) $classes[] = 'ns4';
+	elseif($is_safari) $classes[] = 'safari';
+	elseif($is_chrome) $classes[] = 'chrome';
+	elseif($is_IE) $classes[] = 'ie';
+	else $classes[] = 'unknown';
+
+	if($is_iphone) $classes[] = 'iphone';
+	return $classes;
+}
+//
+// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
+function organizedthemes_browser_body_class($classes) {
+ 
+    global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
+ 
+    if($is_gecko)      $classes[] = 'gecko';
+    elseif($is_opera)  $classes[] = 'opera';
+    elseif($is_safari) $classes[] = 'safari';
+    elseif($is_chrome) $classes[] = 'chrome';
+    elseif($is_IE)     $classes[] = 'ie';
+    else               $classes[] = 'unknown';
+ 
+    return $classes;
+ 
+}
+add_filter('body_class','organizedthemes_browser_body_class');
+
+// Add new image sizes
+add_image_size( 'thumbnail', 9999, 9999, false );
+add_image_size( 'home', 600, 9999, false );
+add_image_size( 'full', 9999, 9999, false );
+if ( function_exists( 'add_theme_support' ) ) {
+	add_theme_support( 'post-thumbnails' );
+        set_post_thumbnail_size( 9999, 9999 );
+}
+// add copyright
+//http://www.wpbeginner.com/wp-tutorials/how-to-add-a-dynamic-copyright-date-in-wordpress-footer/
+function comicpress_copyright() {
+global $wpdb;
+$copyright_dates = $wpdb->get_results("
+SELECT
+YEAR(min(post_date_gmt)) AS firstdate,
+YEAR(max(post_date_gmt)) AS lastdate
+FROM
+$wpdb->posts
+WHERE
+post_status = 'publish'
+");
+$output = '';
+if($copyright_dates) {
+$copyright = "&copy; " . $copyright_dates[0]->firstdate;
+if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
+$copyright .= '-' . $copyright_dates[0]->lastdate;
+}
+$output = $copyright;
+}
+return $output;
+}
+// Add specific CSS class by filter
+	add_filter('body_class','my_class_names');
+	function my_class_names($classes) {
+	if ( !is_front_page() ) {
+		// add 'class-name' to the $classes array
+		$classes[] = 'not-front';
+		}
+		// return the $classes array
+		return $classes;
+	
+}
+
+// Add specific CSS class by filter
+//function my_class_names($classes) {
+//	if ( is_page_template('template-front.php') ) {
+//		$classes[] = 'not-front';
+//	}
+//return $classes;
+//}
+//add_filter('body_class','my_class_names');
+ 
 class description_walker extends Walker_Nav_Menu
 {
       function start_el(&$output, $item, $depth, $args)
@@ -39,7 +127,8 @@ class description_walker extends Walker_Nav_Menu
             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
             }
 }
-
+// get submenu items from wp_nav_menu
+// http://christianvarga.com/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 // add hook
 add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
 
@@ -137,9 +226,6 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
     }
-
-
-
 
 /*
 --- new walker class to create breadcrumb from nav menu structure using wp_nav_menu -------
@@ -243,3 +329,33 @@ if (!is_front_page()){
 		}
 	}
 }
+// add has-submenu class to <body> tag 
+// http://wordpress.stackexchange.com/questions/114102/update-body-class-based-on-menu?rq=1
+function has_submenu( $menu_items ) {
+    $current_id = 0;
+    foreach( $menu_items as $menu_item ) {
+
+        // Get the id of the current menu item
+        if( $menu_item->current ) {
+            $current_id = $menu_item->ID;
+        }
+        // if the current item has a child
+        if( $menu_item->menu_item_parent != 0 && $menu_item->menu_item_parent == $current_id ) {
+				add_filter(
+				  'body_class',
+				  function($classes) {
+					$classes[] = 'has-submenu'; // or 'is-submenu'
+					return $classes;
+				  }
+				);
+            break;
+        }
+        // if the current item has an ancestor
+        if( $menu_item->current_item_ancestor ) {
+            $body_class = 'is-submenu';
+            break;
+        }
+    }
+    return $menu_items;
+}
+add_filter( 'wp_nav_menu_objects', 'has_submenu', 10, 2 );
