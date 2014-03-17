@@ -11,13 +11,17 @@ if ( !defined('ABSPATH') )
 echo $before_widget;
 
 if ( !empty( $title ) ) { echo $before_title . $title . $after_title; }
+echo '<div class="row">';
 if ( !empty( $description ) ) {
-	echo '<div class="'.$this->widget_options['classname'].'-description" >';
+	echo '<div class="'.$this->widget_options['classname'].'-description col-xs-12 col-sm-12" >';
 	echo wpautop( $description );
 	echo "</div>";
 }
+echo '<div class="ses-img-wrap col-xs-12 col-sm-12">';
 echo $this->get_image_html( $instance, true );
-
+echo "</div>";
+echo "</div>";
+echo '<div class="clearfix"></div>';
 
 echo $after_widget;
 ?>

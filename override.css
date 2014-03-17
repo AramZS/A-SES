@@ -1199,3 +1199,8 @@ and (-webkit-min-device-pixel-ratio : 2) {
 }
 .slide-nav-wrap{display:none;}
 .has-submenu .slide-nav-wrap{display:block;}
+
+.widget.ses_widget_sp_image{ padding-bottom:0;}
+.widget.ses_widget_sp_image .alignright{ margin-bottom:0;}
+.ses_widget_sp_image-description{}
+.ses-img-wrap{}
