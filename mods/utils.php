@@ -1,39 +1,39 @@
 <?php
 //
-// http://www.wpbeginner.com/wp-themes/wordpress-body-class-101-tips-and-tricks-for-theme-designers/
-add_filter('body_class','browser_body_class');
-function browser_body_class($classes) {
-	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-
-	if($is_lynx) $classes[] = 'lynx';
-	elseif($is_gecko) $classes[] = 'gecko';
-	elseif($is_opera) $classes[] = 'opera';
-	elseif($is_NS4) $classes[] = 'ns4';
-	elseif($is_safari) $classes[] = 'safari';
-	elseif($is_chrome) $classes[] = 'chrome';
-	elseif($is_IE) $classes[] = 'ie';
-	else $classes[] = 'unknown';
-
-	if($is_iphone) $classes[] = 'iphone';
-	return $classes;
-}
+//// http://www.wpbeginner.com/wp-themes/wordpress-body-class-101-tips-and-tricks-for-theme-designers/
+//add_filter('body_class','browser_body_class');
+//function browser_body_class($classes) {
+//	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 //
-// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
-function organizedthemes_browser_body_class($classes) {
- 
-    global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
- 
-    if($is_gecko)      $classes[] = 'gecko';
-    elseif($is_opera)  $classes[] = 'opera';
-    elseif($is_safari) $classes[] = 'safari';
-    elseif($is_chrome) $classes[] = 'chrome';
-    elseif($is_IE)     $classes[] = 'ie';
-    else               $classes[] = 'unknown';
- 
-    return $classes;
- 
-}
-add_filter('body_class','organizedthemes_browser_body_class');
+//	if($is_lynx) $classes[] = 'lynx';
+//	elseif($is_gecko) $classes[] = 'gecko';
+//	elseif($is_opera) $classes[] = 'opera';
+//	elseif($is_NS4) $classes[] = 'ns4';
+//	elseif($is_safari) $classes[] = 'safari';
+//	elseif($is_chrome) $classes[] = 'chrome';
+//	elseif($is_IE) $classes[] = 'ie';
+//	else $classes[] = 'unknown';
+//
+//	if($is_iphone) $classes[] = 'iphone';
+//	return $classes;
+//}
+////
+//// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
+//function organizedthemes_browser_body_class($classes) {
+// 
+//    global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
+// 
+//    if($is_gecko)      $classes[] = 'gecko';
+//    elseif($is_opera)  $classes[] = 'opera';
+//    elseif($is_safari) $classes[] = 'safari';
+//    elseif($is_chrome) $classes[] = 'chrome';
+//    elseif($is_IE)     $classes[] = 'ie';
+//    else               $classes[] = 'unknown';
+// 
+//    return $classes;
+// 
+//}
+//add_filter('body_class','organizedthemes_browser_body_class');
 
 // Add new image sizes
 add_image_size( 'thumbnail', 9999, 9999, false );
