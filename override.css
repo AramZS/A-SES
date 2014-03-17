@@ -1094,7 +1094,9 @@ front page
 /* Smartphones (landscape) ----------- */
 @media only screen 
 and (min-width : 321px) {
-/* Styles */
+	#mobile-nav-2 ul li a {
+		padding: 3px 10px;
+	}
 }
 
 /* Smartphones (portrait) ----------- */
@@ -1199,3 +1201,8 @@ and (-webkit-min-device-pixel-ratio : 2) {
 }
 .slide-nav-wrap{display:none;}
 .has-submenu .slide-nav-wrap{display:block;}
+
+.widget.ses_widget_sp_image{ padding-bottom:0;}
+.widget.ses_widget_sp_image .alignright{ margin-bottom:0;}
+.ses_widget_sp_image-description{}
+.ses-img-wrap{}

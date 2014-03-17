@@ -1,41 +1,54 @@
 <?php
-// Add specific CSS class by filter
+function has_submenu( $menu_items ) {
 
-//
-//// http://www.wpbeginner.com/wp-themes/wordpress-body-class-101-tips-and-tricks-for-theme-designers/
-//add_filter('body_class','browser_body_class');
-//function browser_body_class($classes) {
-//	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-//
-//	if($is_lynx) $classes[] = 'lynx';
-//	elseif($is_gecko) $classes[] = 'gecko';
-//	elseif($is_opera) $classes[] = 'opera';
-//	elseif($is_NS4) $classes[] = 'ns4';
-//	elseif($is_safari) $classes[] = 'safari';
-//	elseif($is_chrome) $classes[] = 'chrome';
-//	elseif($is_IE) $classes[] = 'ie';
-//	else $classes[] = 'unknown';
-//
-//	if($is_iphone) $classes[] = 'iphone';
-//	return $classes;
-//}
-////
-//// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
-//function organizedthemes_browser_body_class($classes) {
-// 
-//    global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
-// 
-//    if($is_gecko)      $classes[] = 'gecko';
-//    elseif($is_opera)  $classes[] = 'opera';
-//    elseif($is_safari) $classes[] = 'safari';
-//    elseif($is_chrome) $classes[] = 'chrome';
-//    elseif($is_IE)     $classes[] = 'ie';
-//    else               $classes[] = 'unknown';
-// 
+    $current_id = 0;
+
+    foreach( $menu_items as $menu_item ) {
+
+        // Get the id of the current menu item
+        if( $menu_item->current ) {
+            $current_id = $menu_item->ID;
+        }
+        // if the current item has a child
+        if( $menu_item->menu_item_parent != 0 && $menu_item->menu_item_parent == $current_id ) {
+//add_filter(
+//  'body_class',
+//  function($classes) {
+//    $classes[] = 'has-submenu'; // or 'is-submenu'
 //    return $classes;
-// 
-//}
-//add_filter('body_class','organizedthemes_browser_body_class');
+//  }
+//);            break;
+        }
+    }
+    return $menu_items;
+}
+add_filter( 'wp_nav_menu_objects', 'has_submenu', 10, 2 );
+// Add specific CSS class by filter
+	add_filter('body_class','my_class_names');
+	function my_class_names($classes) {
+	if ( !is_front_page() ) {
+		$classes[] = 'not-front';
+		}
+		return $classes;
+	
+}
+// Add specific CSS class by filter
+//// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
+function organizedthemes_browser_body_class($classes) {
+ 
+    global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
+ 
+    if($is_gecko)      $classes[] = 'gecko';
+    elseif($is_opera)  $classes[] = 'opera';
+    elseif($is_safari) $classes[] = 'safari';
+    elseif($is_chrome) $classes[] = 'chrome';
+    elseif($is_IE)     $classes[] = 'ie';
+    else               $classes[] = 'unknown';
+ 
+    return $classes;
+ 
+}
+add_filter('body_class','organizedthemes_browser_body_class');
 
 // Add new image sizes
 add_image_size( 'thumbnail', 9999, 9999, false );
