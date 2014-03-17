@@ -26,16 +26,15 @@
                 </nav>
             </div>            
 		<?php } ?>
-
-        <div class="clearfix hidden-xs">
-            <!--this is a sidebar   --> 
-            <div class="sidebar left-widgets">
-                <?php if ( is_active_sidebar( 'left-sidebar' )) : ?>
+        <!-- add a left sidebar/widget area --> 
+		<?php if ( is_active_sidebar( 'left-sidebar' )) : ?>
+            <div class="clearfix hidden-xs">
+                <aside class="sidebar left-widgets">
                     <?php dynamic_sidebar('left-sidebar'); ?>
-                <?php endif; ?>
-            </div>
-        </div> 
-
+                </aside>
+            </div> 
+         <?php endif; ?>
+         
 <div class="clearfix visible-xs">
     <nav class=" side-nav-sm navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
 <a id="nav-close" data-canvas=".canvas" data-target=".navmenu" data-recalc="false" data-toggle="offcanvas" class="navbar-toggle el-icon-remove-sign"></a>
@@ -57,10 +56,8 @@
             'items_wrap'      => '',
             'depth'           => 2,
             'sub_menu'		  => true
-//                        'walker'          => new clean_walker()
+//			'walker'          => new clean_walker()
         ));?>
     </nav>
 </div>    
 <?php } } ?>
-
-
