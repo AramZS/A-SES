@@ -11,6 +11,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <?php endif; ?>
+
+  <?php wp_head(); ?>
 	<?php
     // we need to fire the nav menu before the body tag so we can assign has-sub-menu class in order show/hid toggle side nav
     // props to s_ha_dum
@@ -20,7 +22,6 @@
         $my_captured_menu = ob_get_contents();
         ob_end_clean();
     ?>
-  <?php wp_head(); ?>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
   	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/html5shiv.js"></script>
