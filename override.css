@@ -1040,7 +1040,8 @@ front page
 		padding: 0 10px;		
 		padding:0 1em;
 	}
-	
+	.jumbotron .rsABlock, 
+	.jumbotron .rsSBlock{display:none;}
 	/*
 	widgets
 	-------------------------------------------*/	
