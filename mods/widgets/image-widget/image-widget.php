@@ -67,7 +67,8 @@ class SES_Image_Widget extends WP_Widget {
 	 */
 	function admin_setup() {
 		wp_enqueue_media();
-		wp_enqueue_script( 'tribe-image-widget', plugins_url('resources/js/image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), self::VERSION );
+//wp_enqueue_script( 'tribe-image-widget', plugins_url('resources/js/image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), self::VERSION );
+	wp_enqueue_script('tribe-image-widget', get_stylesheet_directory_uri() . '/mods/widgets/image-widget/resources/js/image-widget.js', false, null, true);
 
 		wp_localize_script( 'tribe-image-widget', 'TribeImageWidget', array(
 			'frame_title' => __( 'Select an Image', 'image_widget' ),

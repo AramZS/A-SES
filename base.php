@@ -63,9 +63,9 @@ $left                     = ( shoestrap_getVariable( 'navbar_toggle' ) == 'left'
 
     <div>
       <div class="main-wrap clearfix">
-	  <?php if ( has_action( 'shoestrap_breadcrumbs' ) ) : ?>
-        <?php do_action('shoestrap_breadcrumbs'); ?>
-      <?php endif; ?>
+		  <?php if ( has_action( 'shoestrap_breadcrumbs' ) ) : ?>
+            <?php breadcrumb_switch(); ?>
+          <?php endif; ?>
 
         <?php do_action('shoestrap_pre_main'); ?>
 
