@@ -9,7 +9,7 @@ add_action( 'after_setup_theme', 'remove_default_menu', 11 );
 register_nav_menus( array(
 	'mobile_menu1' => 'Mobile Menu 1',
 	'mobile_menu2' => 'Mobile Menu 2',
-	'sidenav'	=> 'Side Menu',
+//	'sidenav'	=> 'Side Menu',
 //	'footer_menu' => 'Footer Menu',
 //	'credits_menu' => 'Credits Menu'	
 ));
@@ -90,54 +90,3 @@ function add_sidebars_init() {
   ));    
 }
 add_action('widgets_init', 'add_sidebars_init', 21);
-// Add new image sizes
-add_image_size( 'thumbnail', 9999, 9999, false );
-add_image_size( 'home', 600, 9999, false );
-add_image_size( 'full', 9999, 9999, false );
-if ( function_exists( 'add_theme_support' ) ) {
-	add_theme_support( 'post-thumbnails' );
-        set_post_thumbnail_size( 9999, 9999 );
-}
-// add copyright
-//http://www.wpbeginner.com/wp-tutorials/how-to-add-a-dynamic-copyright-date-in-wordpress-footer/
-function comicpress_copyright() {
-global $wpdb;
-$copyright_dates = $wpdb->get_results("
-SELECT
-YEAR(min(post_date_gmt)) AS firstdate,
-YEAR(max(post_date_gmt)) AS lastdate
-FROM
-$wpdb->posts
-WHERE
-post_status = 'publish'
-");
-$output = '';
-if($copyright_dates) {
-$copyright = "&copy; " . $copyright_dates[0]->firstdate;
-if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
-$copyright .= '-' . $copyright_dates[0]->lastdate;
-}
-$output = $copyright;
-}
-return $output;
-}
-// Add specific CSS class by filter
-	add_filter('body_class','my_class_names');
-	function my_class_names($classes) {
-	if ( !is_front_page() ) {
-		// add 'class-name' to the $classes array
-		$classes[] = 'not-front';
-		}
-		// return the $classes array
-		return $classes;
-	
-}
-
-// Add specific CSS class by filter
-//function my_class_names($classes) {
-//	if ( is_page_template('template-front.php') ) {
-//		$classes[] = 'not-front';
-//	}
-//return $classes;
-//}
-//add_filter('body_class','my_class_names');
