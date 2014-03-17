@@ -34,7 +34,4 @@
         </div>
     </div>
 </footer>
-<script>
-jQuery("body").fitVids();
-jQuery(".main").fitVids();
-</script>
+<a href="#" class="scrollup"><span class="el-icon-caret-up"></span></a>

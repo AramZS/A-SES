@@ -11,7 +11,7 @@ add_action( 'shoestrap_below_top_navbar', 'tbwa_below_top_navbar' );
 function my_custom_pre_wrap() {
 	echo '<div class="page-wrap container boxed-container">';
 	echo '<div class="row-offcanvas-left">';
-	echo '<div id="left-sidebar" class="sm-offset">';
+	echo '<div id="left" class="left-sidebar sm-offset">';
 		get_template_part('templates/add_sidenav');
 	echo '</div>';
 	echo '<div class="page-body lg-offset">';

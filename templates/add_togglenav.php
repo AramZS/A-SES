@@ -1,8 +1,8 @@
 <?php 
-$children = get_pages('child_of='.$post->ID);
-if( count( $children ) != 0 ) {  
-if (is_page()) { ?> 
-    <div class="main-wrap clearfix">
+if (is_page()) { 
+if ( function_exists( 'has_nav_menu' ) && has_nav_menu( 'primary_navigation' ) ) { 
+?> 
+    <div class="slide-nav-wrap clearfix">
         <div id="slide-nav" class="navbar navbar-default visible-xs">
             <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
               <span class="icon-bar"></span>
@@ -11,4 +11,4 @@ if (is_page()) { ?>
             </button>
         </div>
     </div>
-<?php }} ?>
+<?php } } ?>
