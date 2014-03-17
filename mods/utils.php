@@ -2,7 +2,7 @@
 // add has-submenu class to <body> tag 
 // http://wordpress.stackexchange.com/questions/114102/update-body-class-based-on-menu?rq=1
 function has_submenu( $menu_items ) {
-
+global $post;
     $current_id = 0;
 
     foreach( $menu_items as $menu_item ) {
@@ -23,16 +23,11 @@ function has_submenu( $menu_items ) {
 			);
             break;
         }
-        // if the current item has an ancestor
-        if( $menu_item->current_item_ancestor ) {
-            $body_class = 'is-submenu';
-            break;
-        }
     }
     return $menu_items;
 }
 add_filter( 'wp_nav_menu_objects', 'has_submenu', 10, 2 );
-
+add_filter( 'body_class', 'has_submenu' );
 // Add specific CSS class by filter
 
 //
