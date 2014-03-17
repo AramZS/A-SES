@@ -1,4 +1,5 @@
 <?php 
+// * Custom functions
 // Remove extra nav menus
 function remove_default_menu(){
 	unregister_nav_menu('secondary_navigation');
