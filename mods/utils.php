@@ -11,18 +11,18 @@ function has_submenu( $menu_items ) {
         }
         // if the current item has a child
         if( $menu_item->menu_item_parent != 0 && $menu_item->menu_item_parent == $current_id ) {
-add_filter('body_class',
-function ($classes) {
-	$classes[] = 'has-submenu';
-	return $classes;	
-});
+//add_filter('body_class',
+//function ($classes) {
+//	$classes[] = 'has-submenu';
+//	return $classes;	
+//});
             break;
         }
-        // if the current item has an ancestor
-        if( $menu_item->current_item_ancestor ) {
-            $body_class = 'is-submenu';
-            break;
-        }
+//        // if the current item has an ancestor
+//        if( $menu_item->current_item_ancestor ) {
+//            $body_class = 'is-submenu';
+//            break;
+//        }
     }
     return $menu_items;
 }
