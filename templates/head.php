@@ -17,9 +17,9 @@
     // we need to fire the nav menu before the body tag so we can assign has-sub-menu class in order show/hid toggle side nav
     // props to s_ha_dum
     // http://wordpress.stackexchange.com/questions/114102/update-body-class-based-on-menu?rq=1
-        ob_start();
+        ob_start("has_submenu");
         wp_nav_menu();
-        $my_captured_menu = ob_get_contents();
+        $has_submenu = ob_get_contents();
         ob_end_clean();
     ?>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
