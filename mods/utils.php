@@ -1,35 +1,13 @@
 <?php
-
-function has_submenu( $menu_items ) {
-
-    $current_id = 0;
-
-    foreach( $menu_items as $menu_item ) {
-
-        // Get the id of the current menu item
-        if( $menu_item->current ) {
-            $current_id = $menu_item->ID;
-        }
-        // if the current item has a child
-        if( $menu_item->menu_item_parent != 0 && $menu_item->menu_item_parent == $current_id ) {
-add_filter(
-  'body_class',
-  function($classes) {
-    $classes[] = 'has-submenu'; // or 'is-submenu'
-    return $classes;
-  }
-);
-        }
-        // if the current item has an ancestor
-        if( $menu_item->current_item_ancestor ) {
-            $body_class = 'is-submenu';
-            break;
-        }
-    }
-    return $menu_items;
+// Add specific CSS class by filter
+	add_filter('body_class','my_class_names');
+	function my_class_names($classes) {
+	if ( !is_front_page() ) {
+		$classes[] = 'not-front';
+		}
+		return $classes;
+	
 }
-add_filter( 'wp_nav_menu_objects', 'has_submenu', 10, 2 );
-
 // Add specific CSS class by filter
 
 //
@@ -99,15 +77,7 @@ $output = $copyright;
 }
 return $output;
 }
-// Add specific CSS class by filter
-	add_filter('body_class','my_class_names');
-	function my_class_names($classes) {
-	if ( !is_front_page() ) {
-		$classes[] = 'not-front';
-		}
-		return $classes;
-	
-}
+
 
 // Add specific CSS class by filter
 //function my_class_names($classes) {
@@ -118,46 +88,7 @@ return $output;
 //}
 //add_filter('body_class','my_class_names');
  
-class description_walker extends Walker_Nav_Menu
-{
-      function start_el(&$output, $item, $depth, $args)
-      {
-           global $wp_query;
-           $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-           $class_names = $value = '';
-
-           $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-
-           $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-           $class_names = ' class="'. esc_attr( $class_names ) . '"';
-
-           $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
-
-           $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-           $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-           $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-           $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
-           $prepend = '<strong>';
-           $append = '</strong>';
-           $description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
-
-           if($depth != 0)
-           {
-                     $description = $append = $prepend = "";
-           }
-
-            $item_output = $args->before;
-            $item_output .= '<a'. $attributes .'>';
-            $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
-            $item_output .= $description.$args->link_after;
-            $item_output .= '</a>';
-            $item_output .= $args->after;
-
-            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-            }
-}
 // get submenu items from wp_nav_menu
 // http://christianvarga.com/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 // add hook
