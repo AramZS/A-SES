@@ -35,3 +35,9 @@
     </div>
 </footer>
 <a href="#" class="scrollup"><span class="el-icon-caret-up"></span></a>
+<script>
+if($('.list-group').length){  // return's true if element is present
+  // show or hide another div
+  $('.slide-nav-wrap').show();
+}
+</script>
