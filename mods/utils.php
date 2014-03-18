@@ -1,37 +1,23 @@
 <?php
-function has_submenu( $menu_items ) {
-
-    $current_id = 0;
-
-    foreach( $menu_items as $menu_item ) {
-
-        // Get the id of the current menu item
-        if( $menu_item->current ) {
-            $current_id = $menu_item->ID;
-        }
-        // if the current item has a child
-        if( $menu_item->menu_item_parent != 0 && $menu_item->menu_item_parent == $current_id ) {
-//add_filter(
-//  'body_class',
-//  function($classes) {
-//    $classes[] = 'has-submenu'; // or 'is-submenu'
-//    return $classes;
-//  }
-//);            break;
-        }
-    }
-    return $menu_items;
-}
-add_filter( 'wp_nav_menu_objects', 'has_submenu', 10, 2 );
 // Add specific CSS class by filter
-	add_filter('body_class','my_class_names');
-	function my_class_names($classes) {
+add_filter('body_class','my_class_names');
+function my_class_names($classes) {
 	if ( !is_front_page() ) {
 		$classes[] = 'not-front';
 		}
 		return $classes;
-	
 }
+
+
+// Add specific CSS class by filter
+//function my_class_names($classes) {
+//	if ( is_page_template('template-front.php') ) {
+//		$classes[] = 'not-front';
+//	}
+//return $classes;
+//}
+//add_filter('body_class','my_class_names');
+ 
 // Add specific CSS class by filter
 //// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
 function organizedthemes_browser_body_class($classes) {
@@ -83,21 +69,10 @@ return $output;
 }
 
 
-// Add specific CSS class by filter
-//function my_class_names($classes) {
-//	if ( is_page_template('template-front.php') ) {
-//		$classes[] = 'not-front';
-//	}
-//return $classes;
-//}
-//add_filter('body_class','my_class_names');
- 
-
 // get submenu items from wp_nav_menu
 // http://christianvarga.com/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 // add hook
 add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
-
 // filter_hook function to react on sub_menu flag
 function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
   if ( isset( $args->sub_menu ) ) {
@@ -269,7 +244,7 @@ class bi_BreadCrumbWalker extends Walker{
 function custom_breadcrumbs() {
    global $post;
 ?>
-	<?php	
+<?php	
 		wp_nav_menu( array(
 		'container' => 'none',
 		'theme_location' => 'primary_navigation',
