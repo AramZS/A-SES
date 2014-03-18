@@ -33,7 +33,7 @@ class SES_Image_Widget extends WP_Widget {
 	 * @author Modern Tribe, Inc.
 	 */
 	function SES_Image_Widget() {
-//		load_plugin_textdomain( 'image_widget', false, trailingslashit(basename(dirname(__FILE__))) . 'lang/');
+		load_plugin_textdomain( 'image_widget', false, trailingslashit(basename(dirname(__FILE__))) . 'lang/');
 		$widget_ops = array( 'classname' => 'ses_widget_image', 'description' => __( 'Showcase a single image with a Title, URL, and a Description', 'image_widget' ) );
 		$control_ops = array( 'id_base' => 'ses_widget_image' );
 		$this->WP_Widget('ses_widget_image', __('Custom Image Widget', 'image_widget'), $widget_ops, $control_ops);
@@ -45,12 +45,12 @@ class SES_Image_Widget extends WP_Widget {
 		}
 		add_action( 'admin_head-widgets.php', array( $this, 'admin_head' ) );
 
-		add_action( 'plugin_row_meta', array( $this, 'plugin_row_meta' ),10 ,2 );
+//		add_action( 'plugin_row_meta', array( $this, 'plugin_row_meta' ),10 ,2 );
 
-		if ( !defined('I_HAVE_SUPPORTED_THE_IMAGE_WIDGET') )
-			add_action( 'admin_notices', array( $this, 'post_upgrade_nag') );
+//		if ( !defined('I_HAVE_SUPPORTED_THE_IMAGE_WIDGET') )
+//			add_action( 'admin_notices', array( $this, 'post_upgrade_nag') );
 
-		add_action( 'network_admin_notices', array( $this, 'post_upgrade_nag') );
+//		add_action( 'network_admin_notices', array( $this, 'post_upgrade_nag') );
 	}
 
 	/**
@@ -380,32 +380,32 @@ class SES_Image_Widget extends WP_Widget {
 	}
 
 
-	/**
-	 * Display a thank you nag when the plugin has been upgraded.
-	 */
-	public function post_upgrade_nag() {
-		if ( !current_user_can('install_plugins') ) return;
+//	/**
+//	 * Display a thank you nag when the plugin has been upgraded.
+//	 */
+//	public function post_upgrade_nag() {
+//		if ( !current_user_can('install_plugins') ) return;
+//
+//		$version_key = '_image_widget_version';
+//		if ( get_site_option( $version_key ) == self::VERSION ) return;
+//
+//		$msg = sprintf(__('Thanks for upgrading the Image Widget! If you like this plugin, please consider <a href="%s" target="_blank">rating it</a> and maybe even check out our premium plugins including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://wordpress.org/extend/plugins/image-widget/?source=image-widget&pos=nag','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=nag');
+//		echo "<div class='update-nag'>$msg</div>";
+//
+//		update_site_option( $version_key, self::VERSION );
+//	}
 
-		$version_key = '_image_widget_version';
-		if ( get_site_option( $version_key ) == self::VERSION ) return;
-
-		$msg = sprintf(__('Thanks for upgrading the Image Widget! If you like this plugin, please consider <a href="%s" target="_blank">rating it</a> and maybe even check out our premium plugins including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://wordpress.org/extend/plugins/image-widget/?source=image-widget&pos=nag','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=nag');
-		echo "<div class='update-nag'>$msg</div>";
-
-		update_site_option( $version_key, self::VERSION );
-	}
-
-	/**
-	 * Display an informational section in the plugin admin ui.
-	 * @param $meta
-	 * @param $file
-	 *
-	 * @return array
-	 */
-	public function plugin_row_meta( $meta, $file ) {
-		if ( $file == plugin_basename( dirname(__FILE__).'/image-widget.php' ) ) {
-			$meta[] = '<span class="tribe-test">'.sprintf(__('Check out our other <a href="%s" target="_blank">plugins</a> including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://tri.be/products/?source=image-widget&pos=pluginlist','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=pluginlist').'</span>';
-		}
-		return $meta;
-	}
+//	/**
+//	 * Display an informational section in the plugin admin ui.
+//	 * @param $meta
+//	 * @param $file
+//	 *
+//	 * @return array
+//	 */
+//	public function plugin_row_meta( $meta, $file ) {
+//		if ( $file == plugin_basename( dirname(__FILE__).'/image-widget.php' ) ) {
+//			$meta[] = '<span class="tribe-test">'.sprintf(__('Check out our other <a href="%s" target="_blank">plugins</a> including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://tri.be/products/?source=image-widget&pos=pluginlist','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=pluginlist').'</span>';
+//		}
+//		return $meta;
+//	}
 }
