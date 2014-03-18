@@ -33,10 +33,10 @@ class SES_Image_Widget extends WP_Widget {
 	 * @author Modern Tribe, Inc.
 	 */
 	function SES_Image_Widget() {
-		load_plugin_textdomain( 'image_widget', false, trailingslashit(basename(dirname(__FILE__))) . 'lang/');
-		$widget_ops = array( 'classname' => 'widget_sp_image', 'description' => __( 'Showcase a single image with a Title, URL, and a Description', 'image_widget' ) );
-		$control_ops = array( 'id_base' => 'widget_sp_image' );
-		$this->WP_Widget('widget_sp_image', __('Custom Image Widget', 'image_widget'), $widget_ops, $control_ops);
+//		load_plugin_textdomain( 'image_widget', false, trailingslashit(basename(dirname(__FILE__))) . 'lang/');
+		$widget_ops = array( 'classname' => 'ses_widget_image', 'description' => __( 'Showcase a single image with a Title, URL, and a Description', 'image_widget' ) );
+		$control_ops = array( 'id_base' => 'ses_widget_image' );
+		$this->WP_Widget('ses_widget_image', __('Custom Image Widget', 'image_widget'), $widget_ops, $control_ops);
 		if ( $this->use_old_uploader() ) {
 			require_once( 'lib/ImageWidgetDeprecated.php' );
 			new ImageWidgetDeprecated( $this );

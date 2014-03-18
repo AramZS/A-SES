@@ -151,7 +151,7 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
     http://pastebin.com/kz9iSc5y*/
     class clean_walker extends Walker_Nav_Menu
     {
-    function start_el(&$output, $item, $depth, $args)
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
     global $wp_query;
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -189,7 +189,7 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
     $item_output .= '</a>';
     $item_output .= $args->after;
      
-    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
     }
     }
 
@@ -197,78 +197,74 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 --- new walker class to create breadcrumb from nav menu structure using wp_nav_menu -------
 http://snipplr.com/view/71920/
 http://wordpress.stackexchange.com/questions/50425/show-current-navigation-path-from-menu
- 
-use like:
- 
-wp_nav_menu( array(
-  'container' => 'none',
-  'theme_location' => 'primary',
-  'walker'=> new bi_BreadCrumbWalker,
-  'items_wrap' => '<div id="breadcrumb-%1$s" class="%2$s">%3$s</div>'
-) );
- 
- 
+
+	use like:
+	wp_nav_menu( array( 
+		'container' => 'none', 
+		'theme_location' => 'primary',
+		'walker'=> new bi_BreadCrumbWalker, 
+		'items_wrap' => '<div id="breadcrumb-%1$s" class="%2$s">%3$s</div>'
+	) );
+	  
 */
 class bi_BreadCrumbWalker extends Walker{
- 
-var $tree_type = array( 'post_type', 'taxonomy', 'custom' );
- 
-/**
-  * @see Walker::$db_fields
-  * @var array
-  */
-var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
- 
-/**
-  * delimiter for crumbs
-  * @var string
-  */
-var $delimiter = '';
- 
-/**
-  * @see Walker::start_el()
-  *
-  * @param string $output Passed by reference. Used to append additional content.
-  * @param object $item Menu item data object.
-  * @param int $depth Depth of menu item.
-  * @param int $current_page Menu item ID.
-  * @param object $args
-  */
-function start_el(&$output, $item, $depth, $args) {
- 
-//Check if menu item is an ancestor of the current page
-$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-$current_identifiers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
-$ancestor_of_current = array_intersect( $current_identifiers, $classes );
- 
- 
-if( $ancestor_of_current ){
-$title = apply_filters( 'the_title', $item->title, $item->ID );
- 
-//Preceed with delimter for all but the first item.
-if( 0 != $depth )
-$output .= $this->delimiter;
- 
-//Link tag attributes
-$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) .'"' : '';
-$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) .'"' : '';
-$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) .'"' : '';
-$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) .'"' : '';
- 
-//Add to the HTML output
-//$output .= '<a'. $attributes .'>'.$title.'</a>';
- 
-// added by me to remove the link on the current page item
-if ( in_array("current-menu-item", $classes) ) {
-$output .= '<li><span class="current-page">'.$title.'</span></li>';
-} else {
-$output .= '<li><a'. $attributes .'>'.$title.'</a></li>';
-}
- 
-}
-}
-}
 
+    var $tree_type = array( 'post_type', 'taxonomy', 'custom' );
+
+    /**
+     * @see Walker::$db_fields
+     * @var array
+     */
+    var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
+
+    /**
+     * delimiter for crumbs
+     * @var string
+     */
+    var $delimiter = '';
+
+    /**
+     * @see Walker::start_el()
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item Menu item data object.
+     * @param int $depth Depth of menu item.
+     * @param int $current_page Menu item ID.
+     * @param object $args
+     */
+    function start_el(&$output, $item, $depth = 2, $args = array(), $id = 0) {
+
+        //Check if menu item is an ancestor of the current page
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $current_identifiers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' ); 
+        $ancestor_of_current = array_intersect( $current_identifiers, $classes );     
+
+
+        if( $ancestor_of_current ){
+            $title = apply_filters( 'the_title', $item->title, $item->ID );
+
+            //Preceed with delimter for all but the first item.
+            if( 0 != $depth )
+                $output .= $this->delimiter;
+
+            //Link tag attributes
+            $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+            $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+            $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+            $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+            //Add to the HTML output
+            //$output .= '<a'. $attributes .'>'.$title.'</a>';
+
+			// added by me to remove the link on the current page item
+			if ( in_array("current-menu-item", $classes) ) {
+				$output .= '<li><span class="current-page">'.$title.'</span></li>';
+			} else {
+				$output .= '<li><a'. $attributes .'>'.$title.'</a></li>';
+			}
+        }
+    }
+}
 // add function for custom bookmarks based on wp_nav_menu
 function custom_breadcrumbs() {
    global $post;
