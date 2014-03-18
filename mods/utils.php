@@ -7,17 +7,6 @@ function my_class_names($classes) {
 		}
 		return $classes;
 }
-
-
-// Add specific CSS class by filter
-//function my_class_names($classes) {
-//	if ( is_page_template('template-front.php') ) {
-//		$classes[] = 'not-front';
-//	}
-//return $classes;
-//}
-//add_filter('body_class','my_class_names');
- 
 // Add specific CSS class by filter
 //// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
 function organizedthemes_browser_body_class($classes) {

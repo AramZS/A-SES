@@ -597,6 +597,10 @@ slidenav
 #myNavmenu .dropdown-menu > li > a {
     white-space: normal;
 }
+.navmenu-default, .navbar-default .navbar-offcanvas {
+    background-color: #fff;
+    border-color: #E7E7E7;
+}
 .slide-nav-wrap{display:none;}
 .has-submenu .slide-nav-wrap{display:block;}
 /*
