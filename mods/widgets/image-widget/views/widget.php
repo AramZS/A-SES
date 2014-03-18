@@ -16,8 +16,9 @@ if ( !empty( $description ) ) {
 	echo wpautop( $description );
 	echo "</div>";
 }
+echo '<div class="ses-img-wrap">';
 echo $this->get_image_html( $instance, true );
-
-
+echo '</div>';
+echo '<div class="clearfix"></div>';
 echo $after_widget;
 ?>
