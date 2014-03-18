@@ -1,10 +1,14 @@
 /* IE6 css fixer v0.95: Thu, 13 Mar 2014 12:34:38 +0100 */
 
 
-img {
+embed,
+iframe,
+object,
+video {
 	height: auto;
 	width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
 }
+
 /* ============================================= */
 /* safe settings                                 */
 
