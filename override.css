@@ -30,7 +30,7 @@ body {
 body.not-front{
 	background:url("i/pg-bg.png");
 	background-position:center bottom;
-	background-repeat:no-repeat ;
+	background-repeat:no-repeat;
 }
 /*
 general
@@ -94,7 +94,7 @@ tagline
     padding-left: 0;	
 }
 .tagline {
-    height:68px;
+    height:70px;
     position: relative;
 }
 .tagline-txt{
@@ -620,7 +620,6 @@ right sidebar
     margin-bottom: 20px;
     padding:10px;
 }
-
 .left-sidebar ul,
 .widget ol,
 .widget ul,
@@ -635,7 +634,6 @@ right sidebar
 }
 .sidebar .widget ul li:before {
 	color:#017DB0;
-	/*content: "\00BB \0020";*/
 	content: "> ";	
 }
 .sidebar .widget.simple-social-icons ul li:before {
@@ -710,7 +708,7 @@ footer-menu
 .widget_custom_menu_widget > .widget-inner > ul > li > a {
    display:block;
    margin:0 0 0 1px;
-   padding:5px 15%;
+   padding:5px 15px;
    color:#323A45;
    text-decoration:none;
    line-height:1.3;

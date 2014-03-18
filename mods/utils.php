@@ -24,7 +24,6 @@ function organizedthemes_browser_body_class($classes) {
  
 }
 add_filter('body_class','organizedthemes_browser_body_class');
-
 // Add new image sizes
 add_image_size( 'thumbnail', 9999, 9999, false );
 add_image_size( 'home', 600, 9999, false );
@@ -33,31 +32,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 9999, 9999 );
 }
-// add copyright
-//http://www.wpbeginner.com/wp-tutorials/how-to-add-a-dynamic-copyright-date-in-wordpress-footer/
-function comicpress_copyright() {
-global $wpdb;
-$copyright_dates = $wpdb->get_results("
-SELECT
-YEAR(min(post_date_gmt)) AS firstdate,
-YEAR(max(post_date_gmt)) AS lastdate
-FROM
-$wpdb->posts
-WHERE
-post_status = 'publish'
-");
-$output = '';
-if($copyright_dates) {
-$copyright = "&copy; " . $copyright_dates[0]->firstdate;
-if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
-$copyright .= '-' . $copyright_dates[0]->lastdate;
-}
-$output = $copyright;
-}
-return $output;
-}
-
-
 // get submenu items from wp_nav_menu
 // http://christianvarga.com/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 // add hook
