@@ -4,19 +4,12 @@ Plugin Name: Image Widget
 Plugin URI: http://wordpress.org/extend/plugins/image-widget/
 Description: A simple image widget that uses the native WordPress media manager to add image widgets to your site.
 Author: Modern Tribe, Inc.
-Version: 4.0.8
+Version: 5.0.8
 Author URI: http://m.tri.be/26
 */
 
-// Block direct requests
-if ( !defined('ABSPATH') )
-	die('-1');
 
-// Load the widget on widgets_init
-function ses_load_image_widget() {
-	register_widget('SES_Image_Widget');
-}
-add_action('widgets_init', 'ses_load_image_widget');
+
 
 /**
  * SES_Image_Widget class
@@ -34,9 +27,9 @@ class SES_Image_Widget extends WP_Widget {
 	 */
 	function SES_Image_Widget() {
 		load_plugin_textdomain( 'image_widget', false, trailingslashit(basename(dirname(__FILE__))) . 'lang/');
-		$widget_ops = array( 'classname' => 'ses_widget_image', 'description' => __( 'Showcase a single image with a Title, URL, and a Description', 'image_widget' ) );
-		$control_ops = array( 'id_base' => 'ses_widget_image' );
-		$this->WP_Widget('ses_widget_image', __('Custom Image Widget', 'image_widget'), $widget_ops, $control_ops);
+		$widget_ops = array( 'classname' => 'custom-img-widget', 'description' => __( 'Showcase a single image with a Title, URL, and a Description', 'image_widget' ) );
+		$control_ops = array( 'id_base' => 'custom_widget_image' );
+		$this->WP_Widget('widget_sp_image', __('Custom Image Widget', 'image_widget'), $widget_ops, $control_ops);
 		if ( $this->use_old_uploader() ) {
 			require_once( 'lib/ImageWidgetDeprecated.php' );
 			new ImageWidgetDeprecated( $this );
@@ -46,10 +39,10 @@ class SES_Image_Widget extends WP_Widget {
 		add_action( 'admin_head-widgets.php', array( $this, 'admin_head' ) );
 
 //		add_action( 'plugin_row_meta', array( $this, 'plugin_row_meta' ),10 ,2 );
-
+//
 //		if ( !defined('I_HAVE_SUPPORTED_THE_IMAGE_WIDGET') )
 //			add_action( 'admin_notices', array( $this, 'post_upgrade_nag') );
-
+//
 //		add_action( 'network_admin_notices', array( $this, 'post_upgrade_nag') );
 	}
 
@@ -67,8 +60,9 @@ class SES_Image_Widget extends WP_Widget {
 	 */
 	function admin_setup() {
 		wp_enqueue_media();
-//wp_enqueue_script( 'tribe-image-widget', plugins_url('resources/js/image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), self::VERSION );
-	wp_enqueue_script('tribe-image-widget', get_stylesheet_directory_uri() . '/mods/widgets/image-widget/resources/js/image-widget.js', false, null, true);
+//		wp_enqueue_script( 'tribe-image-widget', plugins_url('resources/js/image-widget.js', __FILE__), array( 'jquery', 'media-upload', 'media-views' ), self::VERSION );
+		wp_enqueue_script('tribe-image-widget', get_stylesheet_directory_uri() . '/mods/widgets/image-widget/resources/js/image-widget.js', false, '4.2.5', false);
+
 
 		wp_localize_script( 'tribe-image-widget', 'TribeImageWidget', array(
 			'frame_title' => __( 'Select an Image', 'image_widget' ),
@@ -378,34 +372,9 @@ class SES_Image_Widget extends WP_Widget {
 		}
 		return apply_filters( 'sp_template_image-widget_'.$template, $file);
 	}
-
-
-//	/**
-//	 * Display a thank you nag when the plugin has been upgraded.
-//	 */
-//	public function post_upgrade_nag() {
-//		if ( !current_user_can('install_plugins') ) return;
-//
-//		$version_key = '_image_widget_version';
-//		if ( get_site_option( $version_key ) == self::VERSION ) return;
-//
-//		$msg = sprintf(__('Thanks for upgrading the Image Widget! If you like this plugin, please consider <a href="%s" target="_blank">rating it</a> and maybe even check out our premium plugins including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://wordpress.org/extend/plugins/image-widget/?source=image-widget&pos=nag','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=nag');
-//		echo "<div class='update-nag'>$msg</div>";
-//
-//		update_site_option( $version_key, self::VERSION );
-//	}
-
-//	/**
-//	 * Display an informational section in the plugin admin ui.
-//	 * @param $meta
-//	 * @param $file
-//	 *
-//	 * @return array
-//	 */
-//	public function plugin_row_meta( $meta, $file ) {
-//		if ( $file == plugin_basename( dirname(__FILE__).'/image-widget.php' ) ) {
-//			$meta[] = '<span class="tribe-test">'.sprintf(__('Check out our other <a href="%s" target="_blank">plugins</a> including our <a href="%s" target="_blank">Events Calendar Pro</a>!', 'image-widget'),'http://tri.be/products/?source=image-widget&pos=pluginlist','http://tri.be/wordpress-events-calendar-pro/?source=image-widget&pos=pluginlist').'</span>';
-//		}
-//		return $meta;
-//	}
 }
+// Load the widget on widgets_init
+function ses_load_image_widget() {
+	register_widget('SES_Image_Widget');
+}
+add_action('widgets_init', 'ses_load_image_widget');

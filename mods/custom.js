@@ -2,15 +2,12 @@
 })( jQuery );
 
 jQuery(document).ready(function($) {
-
-$('ul.nav li.dropdown').hover(function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-}, function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
-});  
-
-$(".main").fitVids();
-$( "table" ).last().addClass( "responsive" );
-
+	// make sure fitvid fires
+	$(".main").fitVids();
+	// add the 'responsive' class to all tables so we don't have to do it manually
+	$( "table" ).addClass( "responsive" );	
+	// only display the toggle nav if the page parent has sub-items
+	if($('.has-side-nav').length){ 
+	  $('.nav-toggle-wrap').show();
+	}
 });
-

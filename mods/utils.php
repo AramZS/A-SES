@@ -3,16 +3,13 @@
 add_filter('body_class','my_class_names');
 function my_class_names($classes) {
 	if ( !is_front_page() ) {
-		$classes[] = 'not-front';
+			$classes[] = 'not-front';
 		}
-		return $classes;
+	return $classes;
 }
 // Add specific CSS class by filter
-//// http://www.organizedthemes.com/body-class-tricks-for-wordpress-sites/
 function organizedthemes_browser_body_class($classes) {
- 
     global $is_gecko, $is_IE, $is_opera, $is_safari, $is_chrome;
- 
     if($is_gecko)      $classes[] = 'gecko';
     elseif($is_opera)  $classes[] = 'opera';
     elseif($is_safari) $classes[] = 'safari';
@@ -21,7 +18,6 @@ function organizedthemes_browser_body_class($classes) {
     else               $classes[] = 'unknown';
  
     return $classes;
- 
 }
 add_filter('body_class','organizedthemes_browser_body_class');
 // Add new image sizes
@@ -40,7 +36,6 @@ add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
 function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
   if ( isset( $args->sub_menu ) ) {
     $root_id = 0;
-    
     // find the current menu item
     foreach ( $sorted_menu_items as $menu_item ) {
       if ( $menu_item->current ) {
@@ -49,7 +44,6 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
         break;
       }
     }
-    
     // find the top level parent
     if ( ! isset( $args->direct_parent ) ) {
       $prev_root_id = $root_id;
@@ -64,7 +58,6 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
         }
       }
     }
-
     $menu_item_parents = array();
     foreach ( $sorted_menu_items as $key => $item ) {
       // init menu_item_parents
@@ -78,7 +71,6 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
         unset( $sorted_menu_items[$key] );
       }
     }
-    
     return $sorted_menu_items;
   } else {
     return $sorted_menu_items;
@@ -205,27 +197,65 @@ class bi_BreadCrumbWalker extends Walker{
 }
 // add function for custom bookmarks based on wp_nav_menu
 function custom_breadcrumbs() {
-   global $post;
-?>
-<?php	
-		wp_nav_menu( array(
-		'container' => 'none',
-		'theme_location' => 'primary_navigation',
-		'walker'=> new bi_BreadCrumbWalker,
-		'items_wrap' => '<div id="custom-breadcrumbs" class="breadTrail container"><ul class="breadcrumb"><li><a href="'. esc_url( home_url( '/' )) .'" class="home"><i class="el-icon-home"></i></a></li>%3$s</div>'
-		));
-    ?>
-<?php }
-
-// add breadcrumb switch
+global $post;
+	wp_nav_menu( array(
+	'container' => 'none',
+	'theme_location' => 'primary_navigation',
+	'walker'=> new bi_BreadCrumbWalker,
+	'items_wrap' => '<div id="custom-breadcrumbs" class="breadTrail container"><ul class="breadcrumb"><li><a href="'. esc_url( home_url( '/' )) .'" class="home"><i class="el-icon-home"></i></a></li>%3$s</div>'
+	));
+}
+//add breadcrumb switch
 function breadcrumb_switch() {
 global $post;
 if (!is_front_page()){
-
 	if ( is_page() ) {
 			custom_breadcrumbs();
 		} else {
-			do_action('shoestrap_breadcrumbs');
+			do_action('shoestrap_pre_wrap');
 		}
 	}
+}
+//Our custom sitemap which reads the menu order using extended menu walker class
+//Shortcode
+// http://snipplr.com/view/54404/wordpress-custom-sitemap-shortcode-following-custom-menu-order/
+function wdp_shortcode_sitemap($atts){ //[sitemap]
+extract(shortcode_atts(array(	
+), $atts));
+//call the function
+$shortcodecontent = wdp_sitemap();
+ 
+return $shortcodecontent;
+}
+add_shortcode('sitemap', 'wdp_shortcode_sitemap');
+ 
+//call the menu and use our custom walker
+function wdp_sitemap(){
+return wp_nav_menu(array('theme_location' => 'primary_navigation', 'walker' => new wdp_sitemap_walker(), 'fallback_cb' => '', 'echo'=>false));
+}
+ 
+//extended navigation class for sitemap rendering
+class wdp_sitemap_walker extends Walker_Nav_Menu
+{
+function start_el(&$output, $item, $depth, $args)
+{
+global $wp_query;
+$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+$id=strtolower(str_replace(" ","-",$item->title));
+$id=str_replace(array('&','&amp;'),"",$id);
+$id=str_replace('--',"-",$id);
+$output .= $indent . '<li id="sitemap-'. $id . '"' . $value .'>';
+$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) .'"' : '';
+$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) .'"' : '';
+$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) .'"' : '';
+$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) .'"' : '';
+ 
+//$item_output .= $args->before;
+$item_output .= '<a'. $attributes .'>';
+$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+// $item_output .= $args->link_after;
+$item_output .= '</a>';
+//$item_output .= $args->after;
+$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+}
 }
