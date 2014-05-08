@@ -1,0 +1,29 @@
+.scroll-up {
+display: none;
+position: fixed;
+bottom: 10px;
+right: 10px;
+width: 32px;	
+height: 32px;	
+background-color: #017DB0;
+text-decoration: none;
+text-align: center;
+cursor: pointer;
+outline:none;
+-moz-border-radius: 32px;
+-webkit-border-radius: 32px;
+border-radius:  32px;
+}
+.scroll-up:hover {
+color: #fff !important;
+opacity:0.7;
+outline:none;
+text-decoration: none;
+}
+.scroll-up span{
+color: #fff;
+display: block;
+font-size: 20px;
+height: 100%;
+width: 100%;
+}
