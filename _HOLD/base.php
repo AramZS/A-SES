@@ -1,0 +1,135 @@
+<?php
+$site_style               = shoestrap_getVariable( 'site_style' );
+$navbar_toggle            = shoestrap_getVariable( 'navbar_toggle' );
+$layout_sidebar_on_front  = shoestrap_getVariable( 'layout_sidebar_on_front' );
+$left                     = ( shoestrap_getVariable( 'navbar_toggle' ) == 'left' ) ? true : false;
+?>
+<?php get_template_part('templates/head'); ?>
+<body <?php body_class(); ?>>
+
+  <!--[if lt IE 8]>
+    <div class="alert alert-warning">
+      <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
+    </div>
+  <![endif]-->
+
+  <?php if ( $site_style == 'boxed' ) : ?>
+    <div class="container boxed-container">
+  <?php endif; ?>
+
+  <?php do_action( 'get_header' ); ?>
+
+  <?php do_action( 'shoestrap_pre_navbar' ); ?>
+  <?php if ( $navbar_toggle != 'none' ) : ?>
+    <?php if ( $navbar_toggle != 'pills' ) : ?>
+      <?php if ( !has_action( 'shoestrap_header_top_navbar_override' ) ) : ?>
+        <?php get_template_part( 'templates/header-top-navbar' ); ?>
+      <?php else : ?>
+        <?php do_action( 'shoestrap_header_top_navbar_override' ); ?>
+      <?php endif; ?>
+    <?php else : ?>
+      <?php if ( !has_action( 'shoestrap_header_override' ) ) : ?>
+        <?php get_template_part( 'templates/header' ); ?>
+      <?php else : ?>
+        <?php do_action( 'shoestrap_header_override' ); ?>
+      <?php endif; ?>
+    <?php endif; ?>
+  <?php endif; ?>
+
+  <?php do_action( 'shoestrap_post_navbar' ); ?>
+
+  <?php if ( $site_style == 'boxed' ) : ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ( $left ) : ?>
+    <section class="static-menu-main <?php echo shoestrap_static_left_breakpoint(); ?> col-static-<?php echo ( 12 - shoestrap_getVariable( 'layout_secondary_width' ) ); ?>">
+  <?php endif; ?>
+
+  <?php if ( has_action( 'shoestrap_below_top_navbar' ) ) : ?>
+    <div class="before-main-wrapper">
+      <?php do_action('shoestrap_below_top_navbar'); ?>
+    </div>
+  <?php endif; ?>
+
+  <?php do_action('shoestrap_pre_wrap'); ?>
+
+
+
+  <?php do_action('shoestrap_header_media'); ?>
+
+  <div>
+    <?php do_action('shoestrap_pre_content'); ?>
+
+    <div>
+      <div class="main-wrap clearfix">
+		  <?php if ( has_action( 'shoestrap_breadcrumbs' ) ) : ?>
+            <?php breadcrumb_switch(); ?>
+          <?php endif; ?>
+
+        <?php do_action('shoestrap_pre_main'); ?>
+
+        <?php if ( shoestrap_section_class( 'wrap' ) ) : ?>
+          <div class="mp_wrap <?php echo shoestrap_section_class( 'wrapper' ); ?>">
+            <div class="row">
+        <?php endif; ?>
+
+        <main class="main <?php echo shoestrap_section_class( 'main' ); ?>" <?php if (is_home()){ echo 'id="home-blog"';} ?> role="main">
+          <?php include roots_template_path(); ?>
+        </main><!-- /.main -->
+
+        <?php do_action('shoestrap_after_main'); ?>
+
+        <?php if ( ( shoestrap_getLayout() != 0 && ( roots_display_sidebar() ) ) || ( is_front_page() && $layout_sidebar_on_front == 1 && shoestrap_getLayout() != 0 ) ) : ?>
+          <?php if ( !is_front_page() || ( is_front_page() && $layout_sidebar_on_front == 1 ) ) : ?>
+            <aside class="sidebar <?php echo shoestrap_section_class( 'primary' ); ?>" role="complementary">
+              <?php if ( !has_action( 'shoestrap_sidebar_override' ) ) : ?>
+                <?php include roots_sidebar_path(); ?>
+              <?php else : ?>
+                <?php do_action( 'shoestrap_sidebar_override' ); ?>
+              <?php endif; ?>
+            </aside><!-- /.sidebar -->
+          <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if ( shoestrap_section_class( 'wrap' ) ) : ?>
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <?php if ( shoestrap_getLayout() >= 3 && is_active_sidebar( 'sidebar-secondary' ) ) : ?>
+          <?php if ( !is_front_page() || ( is_front_page() && $layout_sidebar_on_front == 1 ) ) : ?>
+            <aside class="sidebar secondary <?php echo shoestrap_section_class( 'secondary' ); ?>" role="complementary">
+              <?php dynamic_sidebar( 'sidebar-secondary' ); ?>
+            </aside><!-- /.sidebar -->
+          <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div><!-- /.content -->
+    <?php do_action('shoestrap_after_content'); ?>
+  </div><!-- /.wrap -->
+  <?php do_action('shoestrap_after_wrap'); ?>
+
+  <?php if ( $site_style == 'boxed' ) : ?>
+    <div class="container boxed-container">
+  <?php endif; ?>
+
+  <?php do_action('shoestrap_pre_footer'); ?>
+  <?php if ( !has_action( 'shoestrap_footer_override' ) ) : ?>
+    <?php get_template_part('templates/footer'); ?>
+  <?php else : ?>
+    <?php do_action( 'shoestrap_footer_override' ); ?>
+  <?php endif; ?>
+
+  <?php do_action('shoestrap_after_footer'); ?>
+
+  <?php if ( $site_style == 'boxed' ) : ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ( $left ) : ?></section><?php endif; ?>
+
+  <?php wp_footer(); ?>
+
+</body>
+</html>
