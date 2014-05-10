@@ -1,0 +1,6 @@
+/*
+Wordpress Page Widgets
+---------------------------------------------------------------------------------------------------- */
+#pw-sidebars-customize .widget-liquid-right {
+	width: 50%!important; /*fixes display issues presented by WP 3.8*/
+}
