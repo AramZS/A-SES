@@ -8,8 +8,15 @@ Version: 5.0.8
 Author URI: http://m.tri.be/26
 */
 
+// Block direct requests
+//if ( !defined('ABSPATH') )
+//	die('-1');
 
-
+// Load the widget on widgets_init
+function ses_load_image_widget() {
+	register_widget('SES_Image_Widget');
+}
+add_action('widgets_init', 'ses_load_image_widget');
 
 /**
  * SES_Image_Widget class
@@ -373,8 +380,3 @@ class SES_Image_Widget extends WP_Widget {
 		return apply_filters( 'sp_template_image-widget_'.$template, $file);
 	}
 }
-// Load the widget on widgets_init
-function ses_load_image_widget() {
-	register_widget('SES_Image_Widget');
-}
-add_action('widgets_init', 'ses_load_image_widget');
